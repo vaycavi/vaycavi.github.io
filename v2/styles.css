@@ -1,0 +1,114 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Top Bar */
+header .top-bar {
+    position: fixed; /* Fixes the top bar to the top of the viewport */
+    top: 0; /* Align to the very top */
+    left: 0; /* Align to the left */
+    width: 100%; /* Take full width */
+    background-color: rgba(139, 69, 19, 0.9); /* Semi-transparent brown */
+    color: white; /* Text color */
+    display: flex; /* Use flexbox for alignment */
+    justify-content: space-between; /* Space elements out */
+    align-items: center; /* Center vertically */
+    padding: 10px 20px; /* Add padding for spacing */
+    z-index: 1000; /* Keep the top bar above all other content */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add a shadow for clarity */
+}
+
+
+header .top-bar .logo {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+header .top-bar .rsvp a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+header .top-bar .menu .dropdown {
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 20px;
+    background-color: #8B4513;
+    text-align: right;
+}
+
+header .top-bar .menu:hover .dropdown {
+    display: block;
+}
+
+header .top-bar .menu a {
+    display: block;
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+}
+
+/* Sections */
+section {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.countdown-section {
+    background: url('wedding-bg.jpg') no-repeat center center; /* Adjust as needed */
+    background-size: contain; /* Scales the image to fit within the section */
+    background-color: #000; /* Optional: fallback background color */
+    color: white;
+    text-align: center;
+    padding: 80px 20px;
+    min-height: 300px; /* Adjust height for better fit */
+}
+
+.countdown-section h1 {
+    font-size: 2em;
+}
+
+.countdown-section h2 {
+    font-size: 3em;
+    margin: 20px 0;
+}
+
+.getting-close {
+    background-color: #F5F5DC;
+}
+
+.ceremony, .celebration {
+    background-color: #FAF9F6;
+}
+
+section img {
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 20px;
+}
+
+iframe {
+    width: 100%;
+    height: 250px;
+    border: none;
+    margin: 20px 0;
+}
+
+.gift {
+    background-color: #F8F4E3;
+}
+
+.contact {
+    background-color: #D2B48C;
+    color: white;
+}

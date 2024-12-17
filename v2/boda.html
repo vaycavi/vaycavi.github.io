@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reyes & Vicente Wedding</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Responsive background image for Section 1 */
+        #section1 {
+            background: url('wedding-bg.jpg') no-repeat center center;
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+
+        #section1 h1, #section1 h2, #section1 p {
+            margin: 10px;
+        }
+
+        /* Responsive adjustments for tablets */
+        @media (min-width: 768px) and (max-width: 1024px) {
+            #section1 {
+                background-size: 100% auto; /* Fit image for iPad */
+                height: 70vh;
+                background-attachment: scroll;
+            }
+            #section1 h1 {
+                font-size: 2.5em;
+            }
+            #section1 h2 {
+                font-size: 3.5em;
+            }
+            #section1 p {
+                font-size: 1.2em;
+            }
+        }
+
+        /* Responsive adjustments for smaller devices */
+        @media (max-width: 768px) {
+            #section1 {
+                height: 70vh;
+                background-size: cover;
+                background-attachment: scroll;
+                padding: 20px;
+            }
+            #section1 h1 {
+                font-size: 1.8em;
+            }
+            #section1 h2 {
+                font-size: 2.5em;
+            }
+            #section1 p {
+                font-size: 1em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            #section1 {
+                height: 60vh;
+                padding: 10px;
+            }
+            #section1 h1 {
+                font-size: 1.5em;
+            }
+            #section1 h2 {
+                font-size: 2em;
+            }
+            #section1 p {
+                font-size: 0.9em;
+            }
+        }
+
+        /* Top Bar: Always visible at the top */
+        .top-bar {
+            position: fixed; /* Fixed to the top of the viewport */
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(139, 69, 19, 0.9); /* Semi-transparent brown */
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            z-index: 1000; /* Ensures bar stays on top */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+    <script>
+        // Countdown timer to wedding day
+        function updateCountdown() {
+            const weddingDate = new Date("2025-02-22T13:00:00").getTime(); // Target wedding date
+            const now = new Date().getTime(); // Current date and time
+            const difference = weddingDate - now;
+
+            // Calculate days, hours, minutes, and seconds
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+            // Update the countdown display
+            document.getElementById("countdown").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+        }
+
+        setInterval(updateCountdown, 1000); // Update countdown every second
+        window.onload = updateCountdown; // Initialize countdown on page load
+    </script>
+</head>
+<body>
+    <!-- Top Navigation Bar -->
+    <header>
+        <div class="top-bar">
+            <div class="logo">R&amp;V</div>
+            <div class="rsvp"><a href="YOUR_GOOGLE_FORM_LINK" target="_blank">RSVP</a></div>
+            <div class="menu">
+                <div class="hamburger">&#9776;</div>
+                <div class="dropdown">
+                    <a href="#" onclick="setLanguage('en')">&#127468;&#127463; English</a>
+                    <a href="#" onclick="setLanguage('es')">&#127466;&#127480; Español</a>
+                    <a href="#section1">Countdown</a>
+                    <a href="#section2">Ceremony</a>
+                    <a href="#section3">Celebration</a>
+                    <a href="#section4">Gift</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Section 1: Countdown -->
+    <section id="section1" class="countdown-section">
+        <div class="background-image">
+            <h1 id="countdown"></h1>
+            <h2>Reyes & Vicente</h2>
+            <p>Saturday, February 22, 2025 - 13:00</p>
+            <p>Iglesia de Santa Ana, Triana, Sevilla</p>
+        </div>
+    </section>
+
+    <!-- Section 2: It's Getting Close -->
+    <section id="section2" class="getting-close">
+        <h3>It's Getting Close!</h3>
+        <p>Saturday, February 22, 2025</p>
+        <p>Here you can write a personal message about your wedding.</p>
+    </section>
+
+    <!-- Section 3: Ceremony -->
+    <section id="section3" class="ceremony">
+        <img src="church.jpg" alt="Church">
+        <h3>Ceremony</h3>
+        <p>Saturday, February 22, 2025 - 13:00</p>
+        <p>Real Parroquia Señora Santa Ana, Triana, Sevilla</p>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d815.7976942576419!2d-6.001215766795577!3d37.382876744172485!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd126c1435d75267%3A0xd8111f64acb927d7!2sReal%20Parroquia%20de%20Se%C3%B1ora%20Santa%20Ana!5e0!3m2!1sen!2ses!4v1734466172735!5m2!1sen!2ses" width="100" height="50" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </section>
+
+    <!-- Section 4: Celebration -->
+    <section id="section4" class="celebration">
+        <img src="hacienda.jpg" alt="celebration">
+        <h3>Celebration</h3>
+        <p>Buses: 14:00-14:30 from Plaza de Cuba</p>
+        <p>Hacienda Molinos de Maestre, Dos Hermanas</p>
+        <p>Return buses: 21:30 & 00:30</p>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d576.8750700086048!2d-5.997968846728455!3d37.38040836009726!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd126d454364f03b%3A0xea0d08d7f1230a13!2sPlaza%20de%20Cuba!5e0!3m2!1sen!2ses!4v1734466389983!5m2!1sen!2ses" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe src="https://maps.google.com/?q=Hacienda+Molinos+de+Maestre,Dos+Hermanas&output=embed"></iframe>
+    </section>
+
+    <!-- Section 5: Gift -->
+    <section id="section5" class="gift">
+        <h3>Your Presence Is Our Present</h3>
+        <p>The best present for us is your presence, but if you'd like to contribute to our honeymoon:</p>
+        <p><strong>IBAN: ES00 1234 5678 9012 3456 7890</strong></p>
+    </section>
+
+    <!-- Section 6: Contact -->
+    <section id="section6" class="contact">
+        <h3>Contact Us</h3>
+        <p>Groom: Vicente - <a href="tel:+34600112233">+34 600 112 233</a></p>
+        <p>Bride: Reyes - <a href="tel:+34655443322">+34 655 443 322</a></p>
+    </section>
+</body>
+</html>

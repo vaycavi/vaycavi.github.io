@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reyes & Vicente Wedding</title>
+    <link href="https://fonts.googleapis.com/css2?family=Chantelle&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Main Container -->
+    <div class="container">
+
+        <!-- Left Side (Background + Text) -->
+        <div class="left-side">
+            <div class="name-text">
+                <h1>Reyes & Vicente</h1>
+            </div>
+
+        </div>
+
+        <!-- Right Side (Wedding Details) -->
+        <div class="right-side">
+            <section class="section" id="date">
+                <h2>Wedding Date</h2>
+                <p>Saturday, December 21st, 2024</p>
+            </section>
+            <section class="section" id="schedule">
+                <h2>Schedule</h2>
+                <p>3:00 PM: Ceremony</p>
+                <p>5:00 PM: Reception</p>
+            </section>
+            <section class="section" id="present">
+                <h2>Present</h2>
+                <p>We are registered at XYZ Store. Your presence is the greatest gift!</p>
+            </section>
+            <section class="section" id="travel">
+                <h2>Travel Arrangements</h2>
+                <p>For out-of-town guests, we have arranged special discounts at Hotel ABC.</p>
+            </section>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript to Change Background as You Scroll -->
+    <script src="script.js"></script>
+
+    <!-- POPUS -->
+    <!-- Fondo oscuro -->
+    <div id="backgroundOverlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: 1000;"></div>
+
+    <!-- Pop-Up -->
+    <div id="modalOverlay" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); z-index: 1001;">
+        <h2>¡Bienvenido!</h2>
+        <p>Haz clic en el botón para ir a otra página.</p>
+        <button id="goToPage" style="background: #0078d7; color: white; border: none; padding: 10px 20px; cursor: pointer; border-radius: 5px;">Ir a otra página</button>
+    </div>
+
+    <script>
+        // Mostrar el pop-up
+        function showPopup() {
+            const modalOverlay = document.getElementById('modalOverlay');
+            const backgroundOverlay = document.getElementById('backgroundOverlay');
+            modalOverlay.style.display = 'block';
+            backgroundOverlay.style.display = 'block';
+        }
+
+        // Redirigir al hacer clic en el botón
+        function goToPage() {
+            window.location.href = "otra_pagina.html"; // Cambia a la URL de tu página de destino
+        }
+
+        // Cerrar el pop-up al hacer clic fuera del área
+        document.getElementById('backgroundOverlay').addEventListener('click', () => {
+            const modalOverlay = document.getElementById('modalOverlay');
+            const backgroundOverlay = document.getElementById('backgroundOverlay');
+            modalOverlay.style.display = 'none';
+            backgroundOverlay.style.display = 'none';
+        });
+
+        // Redirigir al hacer clic en el botón del pop-up
+        document.getElementById('goToPage').addEventListener('click', goToPage);
+
+        // Llamada para abrir el pop-up después de que se cargue la página
+        window.onload = function () {
+            setTimeout(showPopup, 1000); // El pop-up aparecerá después de 1 segundo
+        };
+    </script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,402 @@
+﻿* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Aleo', serif;
+    box-sizing: border-box;
+}
+
+body {
+    background: #F3F4EB;
+}
+
+.hero {
+    height: 100vh;
+    width: 100%;
+    background-image: url(wallpaper.png);
+    background-size: cover;
+    background-position: center;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 45px;
+    padding-left: 8%;
+    padding-right: 8%;
+}
+
+.logo {
+    color: black;
+    font-size: 30px;
+    letter-spacing: 1px;
+    cursor: pointer;
+
+}
+
+span {
+    color: black;
+}
+span {
+    color: black;
+}
+
+nav ul li {
+    list-style-type: none;
+    display: inline-block;
+    padding: 10px 25px;
+}
+
+nav ul li a {
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    color: #8A8A7E;
+    transition: .15s;
+    }
+
+.btn {
+    background-color: #6C8DA3;
+    color: white;
+    text-decoration: none;
+    border: 1px solid transparent;
+    font-weight: bolder;
+    padding: 12px 15px;
+    border-radius: 30px;
+    transition: transform .4s;
+}
+
+.btn:hover {
+        transform: scale(1.1);
+}
+
+.content {
+    position: absolute;
+    text-align: center;
+    top: 31%;
+    left: 35%;
+    transform: translateY(-50%);
+}
+
+h1 {
+    color: black;
+    margin: 40px 0;
+    font-size: 4.5rem;
+    margin-bottom: 20%;
+    font-family: "League Spartan", sans-serif;
+}
+
+h4 {
+    color: black;
+    letter-spacing: 2px;
+    font-size: 28px;
+    font-style: italic;
+}
+h2 {
+    color: #264C70;
+    letter-spacing: 0px;
+    font-size: 28px;
+}
+
+h6 {
+    color: black;
+    margin: 20px 90px 0px;
+    font-size: 28px;
+}
+
+h5 {
+    font-weight: bold;
+}
+
+
+.sobremi {
+    width: 100%;
+    padding: 100px 0px;
+    background-color: #EDEEEF;
+}
+
+.sobremi-texto h2 {
+    width: 550px;
+    font-size: 60px;
+    margin-bottom: 60px;
+    margin-left: 45px;
+    margin-right: 1px;
+    text-align: center;
+    font-weight: bold;
+    
+}
+
+.main {
+    width: 1130px;
+    max-width: 95%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-right: 60px;
+    margin-left: 200px;
+    margin-bottom: 45px;
+}
+
+    .main img {
+        border-radius: 20px;
+    }
+
+
+.sobremi-texto p {
+    color: #61615B;
+    letter-spacing: 2px;
+    line-height: 34px;
+    font-size: 19px;
+    margin-top: 20px;
+    margin-bottom: 45px;
+    margin-right: 60px;
+    margin-left: 85px;
+}
+
+
+.service {
+    background: #EDEEEF;
+    width: 100%;
+    padding: 60px;
+}
+
+.title h2 {
+    color: #264C70;
+    font-size: 58px;
+    width: 1130px;
+    margin: 30px auto;
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 1px;
+    
+}
+
+.box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+}
+
+.cardIMG {
+    height: 490px;
+    width: 300px;
+    padding: 40px 0px;
+    background: #E0D7B4;
+    border-radius: 20px;
+    margin: 15px;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+.cardIMG2 {
+    height: 350px;
+    width: 400px;
+    padding: 40px 0px;
+    background: #E0D7B4;
+    border-radius: 20px;
+    margin: 15px;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+.cardIMG i {
+        font-size: 50px;
+        display: block;
+        text-align: center;
+        margin: 25px 0px;
+        color: #f9004d;
+    }
+
+.card {
+    height: 420px;
+    width: 335px;
+    padding: 20px 35px;
+    background: #E0D7B4;
+    border-radius: 20px;
+    margin: 15px;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+#imgTipos {
+	margin-left: 60px;
+}
+    .card i {
+        font-size: 50px;
+        display: block;
+        text-align: center;
+        margin: 25px 0px;
+        color: #f9004d;
+    }
+
+h5 {
+    color: black;
+    font-size: 23px;
+    margin-bottom: 15px;
+}
+
+.pra p {
+    color: #61615B;
+    font-size: 16px;
+    line-height: 27px;
+    margin-bottom: 25px;
+}
+
+.card .button, .container .button, .volver .button{
+    background-color: #8A8A7E;
+    color: white;
+    text-decoration: none;
+    border: 2px solid transparent;
+    font-weight: bold;
+    padding: 9px 22px;
+    border-radius: 30px;
+    transition: .4s;
+}
+
+    .card .button:hover, .container .button:hover , .volver .button:hover {
+        background-color: transparent;
+        color: black;
+        border: 2px solid #8A8A7E;
+        cursor: pointer;
+    }
+
+.contacta {
+    background: #DDDDDB;
+    width: 100%;
+    padding: 50px 0px;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 40px;
+    padding-left: 8%;
+    padding-right: 8%;
+    letter-spacing: 2px;
+    font-size: 18px;
+}
+
+.mb-3 {
+    width: 1000px;
+    text-align: center;
+    align-items: center;
+    padding-top: 25px;
+    padding-left: 58%;
+    padding-right: 8%;
+}
+    .col-4 .btn btn-primary btn-block mb-4:hover {
+        padding-top: 25px;
+        background-color: transparent;
+        color: black;
+        border: 2px solid #8A8A7E;
+        cursor: pointer;
+    }
+
+.title p {
+    text-align: center;
+    align-items: center;
+    padding-top: 25px;
+    padding-left: 10%;
+    padding-right: 8%;
+    font-weight: bolder;
+}
+
+.card .button {
+    background-color: #8A8A7E;
+    color: white;
+    text-decoration: none;
+    border: 2px solid transparent;
+    font-weight: bold;
+    padding: 9px 22px;
+    border-radius: 30px;
+    transition: .4s;
+}
+
+.container .btn btn-primary btn-block mb-4:hover {
+    background-color: transparent;
+    color: black;
+    border: 2px solid #8A8A7E;
+    cursor: pointer;
+}
+
+.expo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+    margin-top: 70px;
+}
+.expo p {
+    font-style: italic;
+}
+
+.volver {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer {
+    margin-left: 600px;
+    margin-right: 500px;
+    text-align: center;
+
+}
+
+.text-muted {
+    margin-left: 0px;
+    margin-right: 900px;
+}
+
+
+
+.experiencia {
+    width: 100%;
+    padding: 50px;
+    background-color: #EDEEEF;
+}
+
+.cardd {
+    height: 390px;
+    width: 335px;
+    padding: 50px 55px;
+    line-height: 60px;
+    background: #E0D7B4;
+    border-radius: 20px;
+    margin: 35px;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+.listformacion {
+    color: #61615B;
+    letter-spacing: 2px;
+    line-height: 34px;
+    font-size: 19px;
+    margin-top: 20px;
+    margin-bottom: 45px;
+    margin-right: 60px;
+    margin-left: 85px;
+}
+
+
+
+
+
+    
+           
+   
+
+
+        
+    
+ 
+
+
+
