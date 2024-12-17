@@ -12,17 +12,20 @@ html {
 
 /* Top Bar: Always visible at the top */
 .top-bar {
-    position: fixed; /* Fixed to the top of the viewport */
+    position: fixed;
+    /* Fixed to the top of the viewport */
     top: 0;
     left: 0;
     width: 100%;
-    background-color: rgba(185, 125, 82, 0.9); /* Semi-transparent brown */
+    background-color: rgba(185, 125, 82, 0.9);
+    /* Semi-transparent brown */
     color: black;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    z-index: 1000; /* Ensures bar stays on top */
+    z-index: 1000;
+    /* Ensures bar stays on top */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
@@ -33,7 +36,7 @@ header .top-bar .logo {
 
 header .top-bar .rsvp a {
     text-decoration: none;
-    color: white;
+    color: black;
     font-weight: bold;
 }
 
@@ -82,57 +85,67 @@ section {
 }
 
 /* Responsive adjustments for tablets */
-        @media (min-width: 768px) and (max-width: 1024px) {
-            #section1 {
-                background-size: 100% auto; /* Fit image for iPad */
-                height: 70vh;
-                background-attachment: scroll;
-            }
-            #section1 h1 {
-                font-size: 2.5em;
-            }
-            #section1 h2 {
-                font-size: 3.5em;
-            }
-            #section1 p {
-                font-size: 1.2em;
-            }
-        }
+@media (min-width: 768px) and (max-width: 1024px) {
+    #section1 {
+        background-size: 100% auto;
+        /* Fit image for iPad */
+        height: 70vh;
+        background-attachment: scroll;
+    }
 
-        /* Responsive adjustments for smaller devices */
-        @media (max-width: 768px) {
-            #section1 {
-                height: 70vh;
-                background-size: cover;
-                background-attachment: scroll;
-                padding: 20px;
-            }
-            #section1 h1 {
-                font-size: 1.8em;
-            }
-            #section1 h2 {
-                font-size: 2.5em;
-            }
-            #section1 p {
-                font-size: 1em;
-            }
-        }
+    #section1 h1 {
+        font-size: 2.5em;
+    }
 
-        @media (max-width: 480px) {
-            #section1 {
-                height: 60vh;
-                padding: 10px;
-            }
-            #section1 h1 {
-                font-size: 1.5em;
-            }
-            #section1 h2 {
-                font-size: 2em;
-            }
-            #section1 p {
-                font-size: 0.9em;
-            }
-        }
+    #section1 h2 {
+        font-size: 3.5em;
+    }
+
+    #section1 p {
+        font-size: 1.2em;
+    }
+}
+
+/* Responsive adjustments for smaller devices */
+@media (max-width: 768px) {
+    #section1 {
+        height: 70vh;
+        background-size: cover;
+        background-attachment: scroll;
+        padding: 20px;
+    }
+
+    #section1 h1 {
+        font-size: 1.8em;
+    }
+
+    #section1 h2 {
+        font-size: 2.5em;
+    }
+
+    #section1 p {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    #section1 {
+        height: 60vh;
+        padding: 10px;
+    }
+
+    #section1 h1 {
+        font-size: 1.5em;
+    }
+
+    #section1 h2 {
+        font-size: 2em;
+    }
+
+    #section1 p {
+        font-size: 0.9em;
+    }
+}
 
 /* Media query for very small devices (extra small phones) */
 @media (max-width: 480px) {
@@ -199,7 +212,7 @@ section {
     /* Align to the top quarter */
     align-items: center;
     text-align: center;
-    color: white;
+    color: black;
     font-family: 'Chantelle', cursive;
     /* Romantic font */
     position: relative;
@@ -220,30 +233,75 @@ section {
     /* Updated font for the text */
 }
 
-/* Date and Location Box */
+/* Adjust .date-location-box for larger devices (iPad and above) */
+@media (min-width: 1024px) {
+    .date-location-box {
+        width: 80%; /* Use 80% width for larger screens */
+        max-width: 800px; /* Max-width to prevent overflow */
+        padding: 15px 30px; /* Keep padding larger for iPad and larger devices */
+        font-size: 1.2em; /* Font size for larger screens */
+        position: absolute; /* Position properly in the section */
+        bottom: 15%; /* Keep the bottom spacing */
+        left: 50%; /* Center horizontally */
+        transform: translateX(-50%); /* Adjust to ensure true centering */
+    }
+}
+
+/* Adjust .date-location-box for iPhone and smaller devices (max-width: 768px) */
+@media (max-width: 768px) {
+    section .date-location-box {
+        width: 85% !important; /* Set width to 85% for smaller screens */
+        max-width: 350px !important; /* Limit max-width further to prevent large box */
+        padding: 5px 10px !important; /* Significantly reduce padding */
+        font-size: 0.8em !important; /* Even smaller font size */
+        font-family: 'Courier New', Courier, monospace !important;
+        position: absolute !important; /* Position relative to the section */
+        bottom: 8% !important; /* Reduce bottom margin to avoid overlap with text */
+        left: 50% !important;
+        transform: translateX(-50%) !important; /* Keep centered */
+    }
+}
+
+/* Further reduce .date-location-box font size and padding for very small devices (max-width: 480px) */
+@media (max-width: 480px) {
+    section .date-location-box {
+        width: 80% !important; /* Even smaller width */
+        max-width: 300px !important; /* Further reduce max-width */
+        font-size: 0.75em !important; /* Further reduce font size */
+        font-family: 'Courier New', Courier, monospace !important;
+        padding: 4px 8px !important; /* Reduce padding more */
+        bottom: 5% !important; /* Reduce bottom spacing further */
+    }
+}
+
+
+
+/* The date-location box */
 .date-location-box {
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: #f8f4e3; /* Off-white background */
     color: #000; /* Black text */
-    padding: 15px 30px;
-    border-radius: 30px 30px 30px 30px; /* Rounded sides */
-    width: 80%;
-    max-width: 800px;
+    padding: 15px 30px; /* Padding for larger screens */
+    border-radius: 30px;
+    width: 80%; /* Default width for larger screens */
+    max-width: 800px; /* Max-width for larger screens */
     font-family: 'Chantelle', serif;
     font-size: 1.2em;
     position: absolute; /* Position relative to the section */
-    bottom: 15%; /* Move closer to the bottom */
+    bottom: 15%; /* Distance from the bottom */
     left: 50%; /* Center horizontally */
-    transform: translateX(-50%); /* Adjust to ensure true centering */
+    transform: translateX(-50%); /* Centering */
 }
 
+/* Flex items in .date-location-box */
 .date-location-box .left,
 .date-location-box .center,
 .date-location-box .right {
     flex: 1;
     text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 .date-location-box .left {
@@ -251,9 +309,16 @@ section {
     padding-right: 15px;
 }
 
+.date-location-box .center {
+    border-right: 1px solid #ddd;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
 .date-location-box .right {
     padding-left: 15px;
 }
+
 
 /* Getting close section */
 .getting-close {
