@@ -10,22 +10,21 @@ html {
     scroll-behavior: smooth;
 }
 
-/* Top Bar */
-header .top-bar {
-    position: fixed; /* Fixes the top bar to the top of the viewport */
-    top: 0; /* Align to the very top */
-    left: 0; /* Align to the left */
-    width: 100%; /* Take full width */
-    background-color: rgba(139, 69, 19, 0.9); /* Semi-transparent brown */
-    color: white; /* Text color */
-    display: flex; /* Use flexbox for alignment */
-    justify-content: space-between; /* Space elements out */
-    align-items: center; /* Center vertically */
-    padding: 10px 20px; /* Add padding for spacing */
-    z-index: 1000; /* Keep the top bar above all other content */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add a shadow for clarity */
+/* Top Bar: Always visible at the top */
+.top-bar {
+    position: fixed; /* Fixed to the top of the viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(185, 125, 82, 0.9); /* Semi-transparent brown */
+    color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    z-index: 1000; /* Ensures bar stays on top */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
-
 
 header .top-bar .logo {
     font-size: 1.5em;
@@ -54,7 +53,7 @@ header .top-bar .menu:hover .dropdown {
 header .top-bar .menu a {
     display: block;
     padding: 10px;
-    color: white;
+    color: black;
     text-decoration: none;
 }
 
@@ -64,30 +63,205 @@ section {
     text-align: center;
 }
 
-.countdown-section {
-    background: url('wedding-bg.jpg') no-repeat center center; /* Adjust as needed */
-    background-size: contain; /* Scales the image to fit within the section */
-    background-color: #000; /* Optional: fallback background color */
-    color: white;
+/* Section 1: Countdown */
+#section1 {
+    background: url('wedding-bg.jpg') no-repeat center center;
+    background-size: cover;
+    /* Default for larger screens */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    /* Stack content vertically */
+    justify-content: flex-start;
+    /* Align items at the top */
+    align-items: center;
     text-align: center;
-    padding: 80px 20px;
-    min-height: 300px; /* Adjust height for better fit */
+    color: black;
+    position: relative;
+    /* To ensure absolute positioning works for child elements */
+}
+
+/* Responsive adjustments for tablets */
+        @media (min-width: 768px) and (max-width: 1024px) {
+            #section1 {
+                background-size: 100% auto; /* Fit image for iPad */
+                height: 70vh;
+                background-attachment: scroll;
+            }
+            #section1 h1 {
+                font-size: 2.5em;
+            }
+            #section1 h2 {
+                font-size: 3.5em;
+            }
+            #section1 p {
+                font-size: 1.2em;
+            }
+        }
+
+        /* Responsive adjustments for smaller devices */
+        @media (max-width: 768px) {
+            #section1 {
+                height: 70vh;
+                background-size: cover;
+                background-attachment: scroll;
+                padding: 20px;
+            }
+            #section1 h1 {
+                font-size: 1.8em;
+            }
+            #section1 h2 {
+                font-size: 2.5em;
+            }
+            #section1 p {
+                font-size: 1em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            #section1 {
+                height: 60vh;
+                padding: 10px;
+            }
+            #section1 h1 {
+                font-size: 1.5em;
+            }
+            #section1 h2 {
+                font-size: 2em;
+            }
+            #section1 p {
+                font-size: 0.9em;
+            }
+        }
+
+/* Media query for very small devices (extra small phones) */
+@media (max-width: 480px) {
+    #section1 {
+        height: 60vh;
+        padding: 10px;
+    }
+
+    #section1 h1 {
+        font-size: 1.5em;
+    }
+
+    #section1 h2 {
+        font-size: 2em;
+    }
+
+    #section1 p {
+        font-size: 0.9em;
+    }
+
+    /* Further reduce .date-location-box font size for very small devices */
+    .date-location-box {
+        width: 90%;
+        max-width: 400px;
+        font-size: 0.9em;
+        padding: 10px 15px;
+    }
+}
+
+
+
+/* Countdown Timer Layout */
+.countdown-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 50px;
+    /* Positioned in the first quarter */
+    font-family: 'Times New Roman', serif;
+    /* Elegant font for numbers */
+    font-size: 2.5em;
+}
+
+.countdown-item {
+    text-align: center;
+}
+
+.countdown-item span {
+    display: block;
+    font-size: 0.5em;
+    margin-top: 5px;
+    font-family: 'Chantelle', cursive;
+    /* Romantic font for labels */
+}
+
+/* Countdown Section Styling */
+#section1 {
+    background: url('wedding-bg.jpg') no-repeat center center;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    /* Align to the top quarter */
+    align-items: center;
+    text-align: center;
+    color: white;
+    font-family: 'Chantelle', cursive;
+    /* Romantic font */
+    position: relative;
+    /* Add relative positioning for child alignment */
 }
 
 .countdown-section h1 {
     font-size: 2em;
 }
 
-.countdown-section h2 {
-    font-size: 3em;
+/* Reyes & Vicente Centered Text */
+#section1 h2 {
+    font-size: 4em;
     margin: 20px 0;
+    color: #000;
+    /* Black text */
+    font-family: 'Great Vibes', cursive;
+    /* Updated font for the text */
 }
 
+/* Date and Location Box */
+.date-location-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f8f4e3; /* Off-white background */
+    color: #000; /* Black text */
+    padding: 15px 30px;
+    border-radius: 30px 30px 30px 30px; /* Rounded sides */
+    width: 80%;
+    max-width: 800px;
+    font-family: 'Chantelle', serif;
+    font-size: 1.2em;
+    position: absolute; /* Position relative to the section */
+    bottom: 15%; /* Move closer to the bottom */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Adjust to ensure true centering */
+}
+
+.date-location-box .left,
+.date-location-box .center,
+.date-location-box .right {
+    flex: 1;
+    text-align: center;
+}
+
+.date-location-box .left {
+    border-right: 1px solid #ddd;
+    padding-right: 15px;
+}
+
+.date-location-box .right {
+    padding-left: 15px;
+}
+
+/* Getting close section */
 .getting-close {
     background-color: #F5F5DC;
 }
 
-.ceremony, .celebration {
+.ceremony,
+.celebration {
     background-color: #FAF9F6;
 }
 

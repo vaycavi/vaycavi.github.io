@@ -6,22 +6,6 @@
     <title>Reyes & Vicente Wedding</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* Responsive background image for Section 1 */
-        #section1 {
-            background: url('wedding-bg.jpg') no-repeat center center;
-            background-size: cover;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: white;
-        }
-
-        #section1 h1, #section1 h2, #section1 p {
-            margin: 10px;
-        }
-
         /* Responsive adjustments for tablets */
         @media (min-width: 768px) and (max-width: 1024px) {
             #section1 {
@@ -74,22 +58,6 @@
                 font-size: 0.9em;
             }
         }
-
-        /* Top Bar: Always visible at the top */
-        .top-bar {
-            position: fixed; /* Fixed to the top of the viewport */
-            top: 0;
-            left: 0;
-            width: 100%;
-            background-color: rgba(139, 69, 19, 0.9); /* Semi-transparent brown */
-            color: white;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 20px;
-            z-index: 1000; /* Ensures bar stays on top */
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-        }
     </style>
     <script>
         // Countdown timer to wedding day
@@ -105,7 +73,10 @@
             const seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
             // Update the countdown display
-            document.getElementById("countdown").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+            document.getElementById("days").innerText = days;
+            document.getElementById("hours").innerText = hours;
+            document.getElementById("minutes").innerText = minutes;
+            document.getElementById("seconds").innerText = seconds;
         }
 
         setInterval(updateCountdown, 1000); // Update countdown every second
@@ -132,13 +103,37 @@
         </div>
     </header>
 
-    <!-- Section 1: Countdown -->
-    <section id="section1" class="countdown-section">
-        <div class="background-image">
-            <h1 id="countdown"></h1>
-            <h2>Reyes & Vicente</h2>
-            <p>Saturday, February 22, 2025 - 13:00</p>
-            <p>Iglesia de Santa Ana, Triana, Sevilla</p>
+     <!-- Section 1: Countdown -->
+     <section id="section1" class="countdown-section">
+        <!-- Countdown Timer -->
+        <div class="countdown-container">
+            <div class="countdown-item">
+                <div id="days">00</div>
+                <span>Days</span>
+            </div>
+            <div class="countdown-item">
+                <div id="hours">00</div>
+                <span>Hours</span>
+            </div>
+            <div class="countdown-item">
+                <div id="minutes">00</div>
+                <span>Minutes</span>
+            </div>
+            <div class="countdown-item">
+                <div id="seconds">00</div>
+                <span>Seconds</span>
+            </div>
+        </div>
+
+        <!-- Centered Text -->
+        <h2>Reyes & Vicente</h2>
+        
+
+        <!-- Date and Location Box -->
+        <div class="date-location-box">
+            <div class="left">Saturday, February 22, 2025</div>
+            <div class="center">Real Parroquia Señora Santa Ana, Sevilla</div>
+            <div class="right">Hacienda Los Molinos de Maestre, Dos Hermanas</div>
         </div>
     </section>
 
