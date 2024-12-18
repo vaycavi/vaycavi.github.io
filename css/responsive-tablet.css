@@ -1,0 +1,42 @@
+/* responsive-tablet.css */
+@media (min-width: 768px) {
+    .countdown-container {
+        bottom: 76% !important; /* Positioning the box vertically */
+    }
+    #section1 {
+        background-size: 100% !important;
+        background-position: 50% 15% !important; /* Center the image */
+        /* Fit image for iPad */
+        height: 90vh !important;
+        background-attachment: scroll !important;
+    }
+
+    #section1 h2 {
+        font-size: 2em !important;
+        font-weight: bolder !important;
+        bottom: 9% !important;
+    }
+
+    #section1 p {
+        font-size: 1.2em;
+    }
+
+    .date-location-box {
+        width: 90% !important;
+        /* Use 80% width for larger screens */
+        max-width: 1000px !important;
+        /* Max-width to prevent overflow */
+        padding: 15px 30px !important;
+        /* Keep padding larger for iPad and larger devices */
+        font-size: 1.2em !important;
+        /* Font size for larger screens */
+        position: absolute;
+        /* Position properly in the section */
+        bottom: 2% !important;
+        /* Keep the bottom spacing */
+        left: 50% !important;
+        /* Center horizontally */
+        transform: translateX(-50%);
+        /* Adjust to ensure true centering */
+    }
+}

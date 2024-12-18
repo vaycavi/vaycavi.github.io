@@ -1,0 +1,57 @@
+/* responsive-mobile.css */
+@media (max-width: 767px) {
+    
+    #section1 {
+        /* Background picture*/
+        height: 70vh !important;
+        background-size: cover !important;
+        background-position: 50% 30% !important; /* Center the image */
+        background-attachment: scroll !important;
+    }
+
+    .countdown-container {
+        width: 100% !important; /* Adjust the width to fit your design */
+        gap: 5px !important;
+        margin-top: 20px;
+        font-size: 1.8em !important;
+        padding: 1px 10px !important; /* Padding inside the box */
+        max-width: 200px !important; /* Maximum width to avoid it becoming too wide */
+        position: absolute; /* Ensures correct positioning */
+        bottom: 20% !important; /* Positioning the box vertically */ 
+        color: white !important;
+    }
+    .countdown-item {
+        color: white !important; 
+    }
+    .countdown-item span {
+        color: white !important; 
+    }
+
+    #section1 h2 {
+        font-size: 1.5em !important;
+        font-weight: bold !important;
+        bottom: 30% !important;
+    }
+
+    #section1 p {
+        font-size: 1em;
+    }
+
+    section .date-location-box {
+        width: 95% !important;
+        /* Set width to 85% for smaller screens */
+        max-width: 550px !important;
+        /* Limit max-width further to prevent large box */
+        padding: 5px 10px !important;
+        /* Significantly reduce padding */
+        font-size: 0.8em !important;
+        /* Even smaller font size */
+        position: absolute !important;
+        /* Position relative to the section */
+        bottom: 3% !important;
+        /* Reduce bottom margin to avoid overlap with text */
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        /* Keep centered */
+    }
+}

@@ -1,0 +1,11 @@
+/* responsive-desktop.css */
+@media (min-width: 1200px) {
+    /* Your desktop-specific styles */
+    #section1 {
+        background-size: cover;
+    }
+
+    h1 {
+        font-size: 3em;
+    }
+}

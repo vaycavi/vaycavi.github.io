@@ -10,6 +10,27 @@ html {
     scroll-behavior: smooth;
 }
 
+@font-face {
+    font-family: 'ArchattsonHollmytro'; /* Name for the font */
+    src: url('../fuentes/archattson_hollmytro/Archattson Hollmytro.otf') format('opentype'); /* Path to your font */
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Romantically'; /* Name for the font */
+    src: url('../fuentes/Romantically/Romantically.otf') format('opentype'); /* Path to your font */
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'bright_almond'; /* Name for the font */
+    src: url('../fuentes/bright_almond/bright_almond.ttf') format('opentype'); /* Path to your font */
+    font-weight: normal;
+    font-style: normal;
+}
+
 /* Top Bar: Always visible at the top */
 .top-bar {
     position: fixed;
@@ -85,20 +106,23 @@ section {
 }
 
 /* Responsive adjustments for tablets */
-@media (min-width: 768px) and (max-width: 1024px) {
+@media (min-width: 768px) {
     #section1 {
-        background-size: 100% auto;
+        background-size: 100% auto !important;
         /* Fit image for iPad */
-        height: 70vh;
-        background-attachment: scroll;
+        height: 90vh !important;
+        background-attachment: scroll !important;
     }
 
     #section1 h1 {
-        font-size: 2.5em;
+        font-size: 2.5em !important;
+        bottom: 10% !important;
     }
 
     #section1 h2 {
-        font-size: 3.5em;
+        font-size: 2em !important;
+        font-weight: bold !important;
+        bottom: 25% !important;
     }
 
     #section1 p {
@@ -109,18 +133,20 @@ section {
 /* Responsive adjustments for smaller devices */
 @media (max-width: 768px) {
     #section1 {
-        height: 70vh;
-        background-size: cover;
-        background-attachment: scroll;
-        padding: 20px;
+        height: 70vh !important;
+        background-size: cover !important;
+        background-attachment: scroll !important;
     }
 
     #section1 h1 {
         font-size: 1.8em;
+        bottom: 50% !important;
     }
 
     #section1 h2 {
-        font-size: 2.5em;
+        font-size: 1.5em;
+        font-weight: lighter !important;
+        bottom: 35% !important;
     }
 
     #section1 p {
@@ -130,52 +156,27 @@ section {
 
 @media (max-width: 480px) {
     #section1 {
-        height: 60vh;
-        padding: 10px;
+        height: 50vh !important;
+        background-size: cover !important;
+        background-attachment: scroll !important;
     }
 
     #section1 h1 {
-        font-size: 1.5em;
+        font-size: 1.5em !important;
+        bottom: 50% !important;
     }
 
     #section1 h2 {
-        font-size: 2em;
+        font-size: 1.5em !important;
+        font-weight: lighter !important;
+        bottom: 15% !important;
+
     }
 
     #section1 p {
         font-size: 0.9em;
     }
 }
-
-/* Media query for very small devices (extra small phones) */
-@media (max-width: 480px) {
-    #section1 {
-        height: 60vh;
-        padding: 10px;
-    }
-
-    #section1 h1 {
-        font-size: 1.5em;
-    }
-
-    #section1 h2 {
-        font-size: 2em;
-    }
-
-    #section1 p {
-        font-size: 0.9em;
-    }
-
-    /* Further reduce .date-location-box font size for very small devices */
-    .date-location-box {
-        width: 90%;
-        max-width: 400px;
-        font-size: 0.9em;
-        padding: 10px 15px;
-    }
-}
-
-
 
 /* Countdown Timer Layout */
 .countdown-container {
@@ -183,9 +184,6 @@ section {
     justify-content: center;
     gap: 15px;
     margin-top: 50px;
-    /* Positioned in the first quarter */
-    font-family: 'Times New Roman', serif;
-    /* Elegant font for numbers */
     font-size: 2.5em;
 }
 
@@ -197,8 +195,8 @@ section {
     display: block;
     font-size: 0.5em;
     margin-top: 5px;
-    font-family: 'Chantelle', cursive;
-    /* Romantic font for labels */
+    font-family: 'bright_almond', sans-serif;
+    color: black;
 }
 
 /* Countdown Section Styling */
@@ -213,86 +211,109 @@ section {
     align-items: center;
     text-align: center;
     color: black;
-    font-family: 'Chantelle', cursive;
-    /* Romantic font */
     position: relative;
     /* Add relative positioning for child alignment */
 }
 
-.countdown-section h1 {
-    font-size: 2em;
-}
-
 /* Reyes & Vicente Centered Text */
 #section1 h2 {
-    font-size: 4em;
+    font-size: 2em;
     margin: 20px 0;
     color: #000;
-    /* Black text */
-    font-family: 'Great Vibes', cursive;
+    position: absolute;
+    font-family: 'Romantically', sans-serif;
     /* Updated font for the text */
 }
 
 /* Adjust .date-location-box for larger devices (iPad and above) */
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
     .date-location-box {
-        width: 80%; /* Use 80% width for larger screens */
-        max-width: 800px; /* Max-width to prevent overflow */
-        padding: 15px 30px; /* Keep padding larger for iPad and larger devices */
-        font-size: 1.2em; /* Font size for larger screens */
-        position: absolute; /* Position properly in the section */
-        bottom: 15%; /* Keep the bottom spacing */
-        left: 50%; /* Center horizontally */
-        transform: translateX(-50%); /* Adjust to ensure true centering */
+        width: 90% !important;
+        /* Use 80% width for larger screens */
+        max-width: 1000px !important;
+        /* Max-width to prevent overflow */
+        padding: 15px 30px !important;
+        /* Keep padding larger for iPad and larger devices */
+        font-size: 1.2em !important;
+        /* Font size for larger screens */
+        position: absolute;
+        /* Position properly in the section */
+        bottom: 15% !important;
+        /* Keep the bottom spacing */
+        left: 50% !important;
+        /* Center horizontally */
+        transform: translateX(-50%);
+        /* Adjust to ensure true centering */
     }
 }
 
 /* Adjust .date-location-box for iPhone and smaller devices (max-width: 768px) */
 @media (max-width: 768px) {
     section .date-location-box {
-        width: 85% !important; /* Set width to 85% for smaller screens */
-        max-width: 350px !important; /* Limit max-width further to prevent large box */
-        padding: 5px 10px !important; /* Significantly reduce padding */
-        font-size: 0.8em !important; /* Even smaller font size */
-        font-family: 'Courier New', Courier, monospace !important;
-        position: absolute !important; /* Position relative to the section */
-        bottom: 8% !important; /* Reduce bottom margin to avoid overlap with text */
+        width: 95% !important;
+        /* Set width to 85% for smaller screens */
+        max-width: 550px !important;
+        /* Limit max-width further to prevent large box */
+        padding: 5px 10px !important;
+        /* Significantly reduce padding */
+        font-size: 0.8em !important;
+        /* Even smaller font size */
+        position: absolute !important;
+        /* Position relative to the section */
+        bottom: 8% !important;
+        /* Reduce bottom margin to avoid overlap with text */
         left: 50% !important;
-        transform: translateX(-50%) !important; /* Keep centered */
+        transform: translateX(-50%) !important;
+        /* Keep centered */
     }
 }
 
 /* Further reduce .date-location-box font size and padding for very small devices (max-width: 480px) */
 @media (max-width: 480px) {
     section .date-location-box {
-        width: 80% !important; /* Even smaller width */
-        max-width: 300px !important; /* Further reduce max-width */
-        font-size: 0.75em !important; /* Further reduce font size */
-        font-family: 'Courier New', Courier, monospace !important;
-        padding: 4px 8px !important; /* Reduce padding more */
-        bottom: 5% !important; /* Reduce bottom spacing further */
+        width: 95% !important;
+        /* Even smaller width */
+        max-width: 500px !important;
+        /* Further reduce max-width */
+        font-size: 0.75em !important;
+        /* Further reduce font size */
+        position: absolute !important;
+        /* Position relative to the section */
+        padding: 4px 8px !important;
+        /* Reduce padding more */
+        bottom: 5% !important;
+        /* Reduce bottom spacing further */
+        transform: translateX(-50%);
+        /* Adjust to ensure true centering */
     }
 }
-
-
 
 /* The date-location box */
 .date-location-box {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #f8f4e3; /* Off-white background */
-    color: #000; /* Black text */
-    padding: 15px 30px; /* Padding for larger screens */
+    background-color: #f8f4e3;
+    /* Off-white background */
+    color: #000;
+    /* Black text */
+    padding: 15px 30px;
+    /* Padding for larger screens */
     border-radius: 30px;
-    width: 80%; /* Default width for larger screens */
-    max-width: 800px; /* Max-width for larger screens */
+    width: 80%;
+    /* Default width for larger screens */
+    max-width: 800px;
+    /* Max-width for larger screens */
     font-family: 'Chantelle', serif;
     font-size: 1.2em;
-    position: absolute; /* Position relative to the section */
-    bottom: 15%; /* Distance from the bottom */
-    left: 50%; /* Center horizontally */
-    transform: translateX(-50%); /* Centering */
+    position: absolute;
+    /* Position relative to the section */
+    bottom: 15%;
+    /* Distance from the bottom */
+    left: 50%;
+    /* Center horizontally */
+    transform: translateX(-50%);
+    /* Centering */
 }
 
 /* Flex items in .date-location-box */
