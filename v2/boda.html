@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reyes & Vicente Wedding</title>
+    <!-- Add Font Awesome CDN -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/styles.css">
 
     <script>
@@ -29,6 +31,30 @@
 
         setInterval(updateCountdown, 1000); // Update countdown every second
         window.onload = updateCountdown; // Initialize countdown on page load
+
+        function setLanguage(lang) {
+            // Toggle visibility of menu items based on selected language
+            if (lang === 'es') {
+                // Show Spanish menu items and hide English ones
+                document.querySelectorAll('.en').forEach(el => el.style.display = 'none');
+                document.querySelectorAll('.es').forEach(el => el.style.display = 'block');
+            } else {
+                // Show English menu items and hide Spanish ones
+                document.querySelectorAll('.es').forEach(el => el.style.display = 'none');
+                document.querySelectorAll('.en').forEach(el => el.style.display = 'block');
+            }
+
+            // Optionally, store the language in localStorage for persistence across page loads
+            localStorage.setItem('language', lang);
+        }
+
+        // Check for stored language preference and set default to Spanish
+        window.onload = function () {
+            window.scrollTo(0, 0);  // Scroll to the top of the page when the page is loaded
+            const language = localStorage.getItem('language') || 'es'; // Default to Spanish if no language is saved
+            setLanguage(language);
+        };
+
     </script>
 </head>
 
@@ -37,46 +63,74 @@
     <header>
         <div class="top-bar">
             <div class="logo">R&amp;V</div>
-            <div class="rsvp"><a href="YOUR_GOOGLE_FORM_LINK" target="_blank">RSVP</a></div>
+            <div class="rsvp">
+                <!-- English RSVP Button -->
+                <a class="en rsvp-button"
+                    href="https://docs.google.com/forms/d/e/1FAIpQLSdqAa5Sshc6KKQ_tG-3vGzIgpp-CYIJQBpiNXNjWK4L3O1bCw/viewform?usp=sharing"
+                    target="_blank">RSVP</a>
+
+                <!-- Spanish RSVP Button -->
+                <a class="es rsvp-button"
+                    href="https://docs.google.com/forms/d/e/1FAIpQLSdqAa5Sshc6KKQ_tG-3vGzIgpp-CYIJQBpiNXNjWK4L3O1bCw/viewform?usp=sharing"
+                    target="_blank">Invitación</a>
+            </div>
+
+            <!-- Language Flags in the Top Bar -->
+            <div class="language-selector">
+                <button class="flag-btn en" onclick="setLanguage('es')">🇪🇸</button>
+                <button class="flag-btn es" onclick="setLanguage('en')">🇬🇧</button>
+            </div>
+
+            <!-- Menu Section -->
             <div class="menu">
                 <div class="hamburger">&#9776;</div>
                 <div class="dropdown">
-                    <a href="#" onclick="setLanguage('en')">&#127468;&#127463; English</a>
-                    <a href="#" onclick="setLanguage('es')">&#127466;&#127480; Español</a>
-                    <a href="#section1">Countdown</a>
-                    <a href="#section2">Ceremony</a>
-                    <a href="#section3">Celebration</a>
-                    <a href="#section4">Gift</a>
+                    <!-- English Menu Items -->
+                    <a class="menu en" href="#section1">Countdown</a>
+                    <a class="menu en" href="#section3">Ceremony</a>
+                    <a class="menu en" href="#section4">Celebration</a>
+                    <a class="menu en" href="#section5">Registry</a>
+
+                    <!-- Spanish Menu Items -->
+                    <a class="menu es" href="#section1">Cuenta atrás</a>
+                    <a class="menu es" href="#section3">Ceremonia</a>
+                    <a class="menu es" href="#section4">Celebración</a>
+                    <a class="menu es" href="#section5">Lista de regalos</a>
                 </div>
             </div>
+
         </div>
     </header>
 
     <!-- Section 1: Countdown -->
     <section id="section1" class="countdown-section">
         <!-- Countdown Timer -->
-            <div class="countdown-container">
-                <div class="countdown-item">
-                    <div id="days">00</div>
-                    <span>Days</span>
-                </div>
-                <span class="colon">:</span>
-                <div class="countdown-item">
-                    <div id="hours">00</div>
-                    <span>Hours</span>
-                </div>
-                <span class="colon">:</span>
-                <div class="countdown-item">
-                    <div id="minutes">00</div>
-                    <span>Minutes</span>
-                </div>
-                <span class="colon">:</span>
-                <div class="countdown-item">
-                    <div id="seconds">00</div>
-                    <span>Seconds</span>
-                </div>
+        <div class="countdown-container">
+            <div class="countdown-item">
+                <div id="days">00</div>
+                <span class="en">Days</span>
+                <span class="es">Días</span>
             </div>
-        
+            <span class="colon">:</span>
+            <div class="countdown-item">
+                <div id="hours">00</div>
+                <span class="en">Hours</span>
+                <span class="es">Horas</span>
+            </div>
+            <span class="colon">:</span>
+            <div class="countdown-item">
+                <div id="minutes">00</div>
+                <span class="en">Minutes</span>
+                <span class="es">Minutos</span>
+            </div>
+            <span class="colon">:</span>
+            <div class="countdown-item">
+                <div id="seconds">00</div>
+                <span class="en">Seconds</span>
+                <span class="es">Segundos</span>
+            </div>
+        </div>
+
 
         <!-- Centered Text -->
         <h2>Reyes & Vicente</h2>
@@ -84,7 +138,8 @@
 
         <!-- Date and Location Box -->
         <div class="date-location-box">
-            <div class="left">Saturday, February 22, 2025</div>
+            <div class="left en">Saturday, February 22, 2025</div>
+            <div class="left es">Sábado, 22 de febrero de 2025</div>
             <div class="center">Real Parroquia Señora Santa Ana, Sevilla</div>
             <div class="right">Hacienda Los Molinos de Maestre, Dos Hermanas</div>
         </div>
@@ -92,9 +147,28 @@
 
     <!-- Section 2: It's Getting Close -->
     <section id="section2" class="getting-close">
-        <h3>It's Getting Close!</h3>
-        <p>Saturday, February 22, 2025</p>
-        <p>Here you can write a personal message about your wedding.</p>
+        <div class="section-title">
+            <h3 class="en">It's Getting Close!</h3>
+            <h3 class="es" style="display:none;">¡Se acerca el gran día!</h3>
+            <!-- Add to Calendar Button next to Title -->
+            <a class="en add-to-calendar-btn" href="https://calendar.app.google/64BGdFkPVwL5GBEs6" target="_blank">
+                <i class="fas fa-calendar-alt"></i> Add to Google Calendar
+            </a>
+            <a class="es add-to-calendar-btn" href="https://calendar.app.google/NTbShwhP8MoFQSGE8" target="_blank">
+                <i class="fas fa-calendar-alt"></i> Añadir al calendario
+            </a>
+        </div>
+        
+        <!-- Text Body Section -->
+        <div class="text-body">
+            <div class="left-column">
+                <img src="../fotos/foto2.JPG" alt="Wedding Image" class="image">
+            </div>
+            <div class="right-column">
+                <p class="en">Here you can write a personal message about your wedding.</p>
+                <p class="es">Escribe un mensaje personalizado.</p>
+            </div>
+        </div>
     </section>
 
     <!-- Section 3: Ceremony -->
@@ -124,7 +198,7 @@
     </section>
 
     <!-- Section 5: Gift -->
-    <section id="section5" class="gift">
+    <section id="section5" class="Registry">
         <h3>Your Presence Is Our Present</h3>
         <p>The best present for us is your presence, but if you'd like to contribute to our honeymoon:</p>
         <p><strong>IBAN: ES00 1234 5678 9012 3456 7890</strong></p>

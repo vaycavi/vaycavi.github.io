@@ -1,42 +1,174 @@
 /* responsive-tablet.css */
-@media (min-width: 768px) {
-    .countdown-container {
-        bottom: 76% !important; /* Positioning the box vertically */
+/* Responsive styles for phones in horizontal mode (800px to 1000px) */
+@media (min-width: 768px) and (max-width: 1000px) {
+
+    /* Styling for RSVP Button */
+    .rsvp {
+        position: absolute !important;
+        top: 50% !important;
+        left: 40% !important;
+        transform: translateY(-50%) !important;
     }
+
+    /* Language Dropdown Styling */
+    .language-selector {
+        position: absolute;
+        right: 10% !important;
+        /* Positioned close to the hamburger */
+        top: 50% !important;
+        transform: translateY(-50%);
+    }
+
+    #section1 {
+        /* Background picture */
+        height: 110vh !important;
+        background-size: 100% !important; /* Slightly zoomed out but not too much */
+        background-position: center 20% !important; /* Adjusted to move the background down */
+        background-attachment: scroll !important;
+    }
+    
+
+    .countdown-container {
+        width: 100% !important;
+        gap: 5px !important;
+        margin-top: 20px;
+        font-size: 1.6em !important; /* Smaller font size for countdown */
+        padding: 1px 10px !important;
+        max-width: 200px !important;
+        position: absolute;
+        bottom: 15% !important; /* Adjusted vertical position */
+        color: white !important;
+    }
+
+    .countdown-item {
+        color: white !important;
+    }
+
+    .countdown-item span {
+        color: white !important;
+    }
+
+    #section1 h2 {
+        font-size: 1.2em !important; /* Reduced font size for title */
+        font-weight: bold !important;
+        bottom: 35% !important;
+    }
+
+    section .date-location-box {
+        width: 95% !important;
+        max-width: 550px !important;
+        padding: 5px 10px !important;
+        font-size: 1.0em !important;
+        position: absolute !important;
+        bottom: 2% !important; /* Adjusted bottom position */
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+    }
+
+    /* Section 2 */
+    .section-title {
+        justify-content: center;  /* Center the title and button on smaller screens */
+        text-align: center;  /* Ensure text is centered when wrapped */
+        flex-direction: column;  /* Stack the title and button vertically */
+    }
+
+    .text-body {
+        flex-direction: column;  /* Stack columns vertically */
+        text-align: center;
+    }
+
+    .left-column {
+        order: 1;  /* Image comes first */
+        margin-bottom: 20px;
+    }
+
+    .right-column {
+        order: 2;
+    }
+
+    .add-to-calendar-btn {
+        margin-top: 10px;  /* Adds space between the button and title when stacked */
+        width: auto;  /* Ensures the button doesn't stretch to full width */
+    }
+
+    /* Ensure the layout of the different sections is properly spaced */
+    #section1 h2 {
+        margin-bottom: 10px; /* Space between the title and countdown */
+    }
+
+    .countdown-container {
+        margin-top: 20px;
+        margin-bottom: 20px; /* Space between countdown and the date-location box */
+    }
+
+    section .date-location-box {
+        margin-top: 20px;
+        font-size: 1.0em !important; /* Smaller font size for better fit */
+    }
+}
+
+@media (min-width: 1000px) {
+    
     #section1 {
         background-size: 100% !important;
-        background-position: 50% 15% !important; /* Center the image */
+        background-position: 50% 25% !important; /* Center the image */
         /* Fit image for iPad */
         height: 90vh !important;
         background-attachment: scroll !important;
     }
 
-    #section1 h2 {
-        font-size: 2em !important;
-        font-weight: bolder !important;
-        bottom: 9% !important;
-    }
-
-    #section1 p {
-        font-size: 1.2em;
-    }
-
-    .date-location-box {
-        width: 90% !important;
-        /* Use 80% width for larger screens */
-        max-width: 1000px !important;
-        /* Max-width to prevent overflow */
-        padding: 15px 30px !important;
-        /* Keep padding larger for iPad and larger devices */
-        font-size: 1.2em !important;
-        /* Font size for larger screens */
+    .countdown-container {
+        width: 100% !important;
+        /* Adjust the width to fit your design */
+        gap: 5px !important;
+        margin-top: 20px;
+        font-size: 1.8em !important;
+        padding: 1px 10px !important;
+        /* Padding inside the box */
+        max-width: 200px !important;
+        /* Maximum width to avoid it becoming too wide */
         position: absolute;
-        /* Position properly in the section */
-        bottom: 2% !important;
-        /* Keep the bottom spacing */
+        /* Ensures correct positioning */
+        bottom: 15% !important;
+        /* Positioning the box vertically */
+        color: white !important;
+    }
+
+    .countdown-item {
+        color: white !important;
+    }
+
+    .countdown-item span {
+        color: white !important;
+    }
+
+    #section1 h2 {
+        font-size: 2.5em !important;
+        font-weight: bold !important;
+        bottom: 22% !important;
+    }
+
+    section .date-location-box {
+        width: 95% !important;
+        /* Set width to 85% for smaller screens */
+        max-width: 550px !important;
+        /* Limit max-width further to prevent large box */
+        padding: 5px 10px !important;
+        /* Significantly reduce padding */
+        font-size: 1.0em !important;
+        /* Even smaller font size */
+        position: absolute !important;
+        /* Position relative to the section */
+        bottom: 3% !important;
+        /* Reduce bottom margin to avoid overlap with text */
         left: 50% !important;
-        /* Center horizontally */
-        transform: translateX(-50%);
-        /* Adjust to ensure true centering */
+        transform: translateX(-50%) !important;
+        /* Keep centered */
+    }
+
+    /* Section 2 */
+    .section-title {
+        justify-content: center !important;  /* Center the title and button on smaller screens */
+        text-align: center !important;  /* Ensure text is centered when wrapped */
     }
 }

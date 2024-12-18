@@ -1,0 +1,133 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Top Bar: Always visible at the top */
+.top-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(228,213,183, 0.6);
+    color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 20px;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Logo Styling */
+header .top-bar .logo {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+/* Form Styling */
+.rsvp-form {
+    width: 80%;
+    max-width: 600px;
+    margin: 80px auto;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Form Group Styling */
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    font-size: 1em;
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.form-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+/* Focus Effect on Inputs */
+.form-input:focus {
+    border-color: #9d6f40;
+    outline: none;
+}
+
+/* Submit Button Styling */
+.submit-btn {
+    background-color: #B57F52;
+    color: white;
+    padding: 12px 20px;
+    font-size: 1.1em;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #9d6f40;
+}
+
+/* Language Selector and Top Bar Adjustments */
+.language-selector {
+    position: absolute;
+    right: 70px;
+    z-index: 1001;
+}
+
+.flag-btn {
+    background-color: transparent;
+    border: none;
+    font-size: 1.8em;
+    cursor: pointer;
+    padding: 3px;
+    margin: 0 5px;
+}
+
+/* Menu Styling */
+header .top-bar .menu .dropdown {
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: rgba(228, 213, 183, 0.6);
+    text-align: right;
+}
+
+header .top-bar .menu:hover .dropdown {
+    display: block;
+}
+
+.menu a {
+    display: block;
+    padding: 10px;
+    color: black;
+    text-decoration: none;
+}
+
+.menu a:hover {
+    background-color: rgba(228, 213, 183, 0.8);
+}
+
+.hamburger {
+    cursor: pointer;
+    font-size: 2.5em;
+    margin-right: -10px;
+    color: black;
+}
