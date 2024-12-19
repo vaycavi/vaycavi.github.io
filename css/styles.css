@@ -103,56 +103,98 @@ header .top-bar .logo {
     margin: 0 5px;  /* Space between flags */
 }
 
-/* Menu Dropdown Styling */
-header .top-bar .menu .dropdown {
-    display: none;
-    position: absolute;
-    top: 76px;
-    right: 0;
-    background-color: rgba(228, 213, 183, 0.6);
-    text-align: right;
-    border-radius: 10px;  /* Apply rounded corners */
-    overflow: hidden;  /* Ensures content inside doesn't overflow beyond the rounded corners */
-}
-
-/* Light grey horizontal line between dropdown items */
-header .top-bar .menu .dropdown a:not(:last-child) {
-    border-bottom: 1px solid #d3d3d3;  /* Light grey border between items */
-}
-
-/* Show the dropdown menu when hovering over the hamburger */
-header .top-bar .menu:hover .dropdown {
-    display: block;
-}
-
-/* Menu links styling */
-.menu a {
-    display: block; /* Stack menu items vertically */
-    padding: 8px 12px;  /* Reduced padding for thinner appearance */
-    color: black;
-    font-family: Cochin, sans-serif;
-    text-decoration: none;
-}
-
-/* Optional: Add hover effect for the menu items */
-.menu a:hover {
-    background-color: rgba(228, 213, 183, 0.8);
-}
-
-/* Initially hide the Spanish menu items */
-.menu .es {
-    display: none;  /* Hide Spanish menu items by default */
-}
-
-/* When the language is switched, the selected language will have display: block */
-
-
 /* Styling for the hamburger icon */
 .hamburger {
     cursor: pointer;
     font-size: 2.5em;  /* Reduced size for the hamburger icon */
     margin-right: 0px;  /* Adjusted margin */
     color: black;
+}
+/* New Page Transition Styles */
+.page-transition {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(241, 230, 217, 0.9);  /* Beige color with slight transparency */
+    visibility: hidden; /* Initially hidden */
+    opacity: 0; /* Start with full transparency */
+    transition: opacity 0.8s ease-in-out, visibility 0s 0.8s;  /* Fade in and out */
+    z-index: 9999; /* On top of other content */
+    padding: 30px;
+}
+
+.page-transition.open {
+    visibility: visible; /* Make visible when open */
+    opacity: 1; /* Full opacity when open */
+    transition: opacity 0.8s ease-in-out, visibility 0s 0s; /* Instant visibility change */
+}
+
+/* Close Button Styling */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 2.5em;
+    cursor: pointer;
+    color: black;
+    z-index: 10000;
+}
+
+/* Menu Links Styling inside New Page */
+.menu-links {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+    margin-top: 50px;
+}
+
+/* Style for the individual buttons */
+.menu-links a {
+    font-size: 1.5em;
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+    padding: 10px;
+    border: none;  /* Remove border for all buttons except RSVP */
+    transition: background-color 0.3s ease;
+    background-color: transparent;  /* Make background transparent */
+}
+
+/* Button hover effect */
+.menu-links a:hover {
+    background-color: #9d6f40;  /* Light brown color on hover */
+    color: white;
+}
+
+/* Styling for the RSVP button (with border) */
+.rsvp-button {
+    font-size: 1.5em;
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+    padding: 10px;
+    border: 2px solid #9d6f40;  /* Add border */
+    border-radius: 5px;
+    background-color: transparent;  /* Make background transparent */
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.rsvp-button:hover {
+    background-color: #9d6f40;
+    color: white;
+    transform: scale(1.05);  /* Scale effect on hover */
+}
+
+/* Main content that will fade when the new page opens */
+.main-content {
+    transition: opacity 0.5s ease-in-out;
+}
+.main-content.fade {
+    opacity: 0.3;  /* Fade out the main content */
 }
 
 /* Sections */
