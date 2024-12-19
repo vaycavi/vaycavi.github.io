@@ -100,6 +100,85 @@
         width: auto;
         /* Ensures the button doesn't stretch to full width */
     }
+
+    /* Section 3 */
+    #section3 .content {
+        flex-direction: column !important;
+        /* Stack the sections vertically */
+        align-items: center !important;
+        /* Center the content horizontally */
+        width: 100% !important;
+        /* Ensure the full width of the screen is used */
+    }
+
+    /* Left content (Date, Location, Google Maps) */
+    #section3 .left-content {
+        width: 100% !important;
+        /* Full width */
+        display: flex !important;
+        flex-direction: column !important;
+        /* Stack items vertically */
+        align-items: stretch !important;
+        /* Stretch items to take full width */
+    }
+
+    /* Styling for the Date, Location, and Icons table */
+    #section3 .event-table table {
+        width: 100% !important;
+        /* Full width for mobile */
+        text-align: center !important;
+        /* Center the text */
+        background-color: #F8F4E3 !important;
+        /* Beige background color */
+        border-radius: 10px !important;
+        /* Rounded corners */
+        padding: 20px !important;
+        /* Padding inside the table */
+    }
+
+    #section3 .event-table td {
+        padding: 10px !important;
+        /* Padding inside each cell */
+        font-size: 1.1em !important;
+        /* Adjust font size */
+    }
+
+    #section3 .event-table i {
+        font-size: 1.5em !important;
+        /* Icon size */
+        color: #ff6347 !important;
+        /* Icon color */
+    }
+
+    /* Google Maps iframe */
+    #section3 iframe {
+        width: 100% !important;
+        /* Full width */
+        height: 250px !important;
+        /* Reduced height for mobile */
+        margin-top: 10px !important;
+        border-radius: 10px !important;
+    }
+
+    /* Right content (Image as background) */
+    #section3 .right-content {
+        width: 100vw !important;
+        /* Full viewport width */
+        height: 100vh !important;
+        /* Full viewport height */
+        margin: 0 !important;
+        /* Remove any margin */
+        padding: 0 !important;
+        /* Ensure no padding */
+        background-image: url(../fotos/church.jpg) !important;
+        background-size: cover !important;
+        /* Ensure the background covers the full width/height */
+        background-position: center !important;
+        /* Ensure the image is centered */
+        background-repeat: no-repeat !important;
+        /* Prevent the image from repeating */
+        position: relative;
+    }
 }
 
 /* smaller phones */
@@ -109,11 +188,13 @@
         bottom: 20% !important;
     }
 }
+
 @media (max-height: 658px) {
     .countdown-container {
         /* Ensures correct positioning */
         bottom: 25% !important;
     }
+
     #section1 h2 {
         font-size: 1.5em !important;
         font-weight: bold !important;

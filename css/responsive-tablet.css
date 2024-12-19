@@ -22,20 +22,24 @@
     #section1 {
         /* Background picture */
         height: 90vh !important;
-        background-size: 120% !important; /* Slightly zoomed out but not too much */
-        background-position: center 50% !important; /* Move the background upwards */
+        background-size: 120% !important;
+        /* Slightly zoomed out but not too much */
+        background-position: center 50% !important;
+        /* Move the background upwards */
         background-attachment: scroll !important;
     }
-    
+
     .countdown-container {
         width: 100% !important;
         gap: 5px !important;
         margin-top: 20px;
-        font-size: 1.6em !important; /* Smaller font size for countdown */
+        font-size: 1.6em !important;
+        /* Smaller font size for countdown */
         padding: 1px 10px !important;
         max-width: 200px !important;
         position: absolute;
-        bottom: 10% !important; /* Adjusted vertical position */
+        bottom: 10% !important;
+        /* Adjusted vertical position */
         color: black !important;
     }
 
@@ -48,7 +52,8 @@
     }
 
     #section1 h2 {
-        font-size: 2em !important; /* Reduced font size for title */
+        font-size: 2em !important;
+        /* Reduced font size for title */
         font-weight: bolder !important;
         bottom: 70% !important;
         color: white !important;
@@ -60,25 +65,31 @@
         padding: 5px 10px !important;
         font-size: 1.0em !important;
         position: absolute !important;
-        bottom: 2% !important; /* Adjusted bottom position */
+        bottom: 2% !important;
+        /* Adjusted bottom position */
         left: 50% !important;
         transform: translateX(-50%) !important;
     }
 
     /* Section 2 */
     .section-title {
-        justify-content: center;  /* Center the title and button on smaller screens */
-        text-align: center;  /* Ensure text is centered when wrapped */
-        flex-direction: column;  /* Stack the title and button vertically */
+        justify-content: center;
+        /* Center the title and button on smaller screens */
+        text-align: center;
+        /* Ensure text is centered when wrapped */
+        flex-direction: column;
+        /* Stack the title and button vertically */
     }
 
     .text-body {
-        flex-direction: column;  /* Stack columns vertically */
+        flex-direction: column;
+        /* Stack columns vertically */
         text-align: center;
     }
 
     .left-column {
-        order: 1;  /* Image comes first */
+        order: 1;
+        /* Image comes first */
         margin-bottom: 20px;
     }
 
@@ -87,31 +98,37 @@
     }
 
     .add-to-calendar-btn {
-        margin-top: 10px;  /* Adds space between the button and title when stacked */
-        width: auto;  /* Ensures the button doesn't stretch to full width */
+        margin-top: 10px;
+        /* Adds space between the button and title when stacked */
+        width: auto;
+        /* Ensures the button doesn't stretch to full width */
     }
 
     /* Ensure the layout of the different sections is properly spaced */
     #section1 h2 {
-        margin-bottom: 10px; /* Space between the title and countdown */
+        margin-bottom: 10px;
+        /* Space between the title and countdown */
     }
 
     .countdown-container {
         margin-top: 20px;
-        margin-bottom: 20px; /* Space between countdown and the date-location box */
+        margin-bottom: 20px;
+        /* Space between countdown and the date-location box */
     }
 
     section .date-location-box {
         margin-top: 20px;
-        font-size: 1.0em !important; /* Smaller font size for better fit */
+        font-size: 1.0em !important;
+        /* Smaller font size for better fit */
     }
 }
 
 @media (min-width: 1000px) {
-    
+
     #section1 {
         background-size: 100% !important;
-        background-position: center 55% !important; /* Move the background upwards */
+        background-position: center 55% !important;
+        /* Move the background upwards */
         /* Fit image for iPad */
         height: 90vh !important;
         background-attachment: scroll !important;
@@ -168,7 +185,19 @@
 
     /* Section 2 */
     .section-title {
-        justify-content: center !important;  /* Center the title and button on smaller screens */
-        text-align: center !important;  /* Ensure text is centered when wrapped */
+        justify-content: center !important;
+        /* Center the title and button on smaller screens */
+        text-align: center !important;
+        /* Ensure text is centered when wrapped */
+    }
+
+    /* Left Column (Image) */
+    .left-column {
+        flex: 1;
+        margin-left: -100px !important;
+    }
+    .left-column {
+        flex: 1;
+        margin-right: -100px !important;
     }
 }
