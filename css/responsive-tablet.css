@@ -21,13 +21,12 @@
 
     #section1 {
         /* Background picture */
-        height: 110vh !important;
-        background-size: 100% !important; /* Slightly zoomed out but not too much */
-        background-position: center 20% !important; /* Adjusted to move the background down */
+        height: 90vh !important;
+        background-size: 120% !important; /* Slightly zoomed out but not too much */
+        background-position: center 50% !important; /* Move the background upwards */
         background-attachment: scroll !important;
     }
     
-
     .countdown-container {
         width: 100% !important;
         gap: 5px !important;
@@ -36,22 +35,23 @@
         padding: 1px 10px !important;
         max-width: 200px !important;
         position: absolute;
-        bottom: 15% !important; /* Adjusted vertical position */
-        color: white !important;
+        bottom: 10% !important; /* Adjusted vertical position */
+        color: black !important;
     }
 
     .countdown-item {
-        color: white !important;
+        color: black !important;
     }
 
     .countdown-item span {
-        color: white !important;
+        color: black !important;
     }
 
     #section1 h2 {
-        font-size: 1.2em !important; /* Reduced font size for title */
-        font-weight: bold !important;
-        bottom: 35% !important;
+        font-size: 2em !important; /* Reduced font size for title */
+        font-weight: bolder !important;
+        bottom: 70% !important;
+        color: white !important;
     }
 
     section .date-location-box {
@@ -111,7 +111,7 @@
     
     #section1 {
         background-size: 100% !important;
-        background-position: 50% 25% !important; /* Center the image */
+        background-position: center 55% !important; /* Move the background upwards */
         /* Fit image for iPad */
         height: 90vh !important;
         background-attachment: scroll !important;
@@ -131,15 +131,15 @@
         /* Ensures correct positioning */
         bottom: 15% !important;
         /* Positioning the box vertically */
-        color: white !important;
+        color: black !important;
     }
 
     .countdown-item {
-        color: white !important;
+        color: black !important;
     }
 
     .countdown-item span {
-        color: white !important;
+        color: black !important;
     }
 
     #section1 h2 {

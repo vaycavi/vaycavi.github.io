@@ -21,8 +21,9 @@
     #section1 {
         /* Background picture*/
         height: 100vh !important;
-        background-size: cover !important;
-        background-position: 25% 0% !important;
+        background-size: auto !important;
+        background-position: 40% 50% !important;
+        /* Move the background upwards */
         background-attachment: scroll !important;
     }
 
@@ -39,22 +40,13 @@
         position: absolute;
         /* Ensures correct positioning */
         bottom: 15% !important;
-        /* Positioning the box vertically */
-        color: white !important;
-    }
-
-    .countdown-item {
-        color: white !important;
-    }
-
-    .countdown-item span {
-        color: white !important;
     }
 
     #section1 h2 {
         font-size: 1.5em !important;
         font-weight: bold !important;
-        bottom: 25% !important;
+        bottom: 70% !important;
+        color: white !important;
     }
 
     section .date-location-box {
@@ -78,18 +70,23 @@
     /* Section 2*/
     /* Ensure title and button stay aligned horizontally on smaller screens */
     .section-title {
-        justify-content: center;  /* Center the title and button on smaller screens */
-        text-align: center;  /* Ensure text is centered when wrapped */
-        flex-direction: column;  /* Stack the title and button vertically on small screens */
+        justify-content: center;
+        /* Center the title and button on smaller screens */
+        text-align: center;
+        /* Ensure text is centered when wrapped */
+        flex-direction: column;
+        /* Stack the title and button vertically on small screens */
     }
 
     .text-body {
-        flex-direction: column;  /* Stack columns vertically on smaller screens */
+        flex-direction: column;
+        /* Stack columns vertically on smaller screens */
         text-align: center;
     }
 
     .left-column {
-        order: 1;  /* Image comes first */
+        order: 1;
+        /* Image comes first */
         margin-bottom: 20px;
     }
 
@@ -98,7 +95,29 @@
     }
 
     .add-to-calendar-btn {
-        margin-top: 10px;  /* Adds space between the button and title when stacked on mobile */
-        width: auto;  /* Ensures the button doesn't stretch to full width */
+        margin-top: 10px;
+        /* Adds space between the button and title when stacked on mobile */
+        width: auto;
+        /* Ensures the button doesn't stretch to full width */
+    }
+}
+
+/* smaller phones */
+@media (max-width: 376px) {
+    .countdown-container {
+        /* Ensures correct positioning */
+        bottom: 20% !important;
+    }
+}
+@media (max-height: 658px) {
+    .countdown-container {
+        /* Ensures correct positioning */
+        bottom: 25% !important;
+    }
+    #section1 h2 {
+        font-size: 1.5em !important;
+        font-weight: bold !important;
+        bottom: 60% !important;
+        color: white !important;
     }
 }
