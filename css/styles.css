@@ -491,6 +491,8 @@ p {
 
 /* Section 4: Celebration */
 #section4 {
+    background: 
+        linear-gradient(to bottom, white 60%, #F8F4E3 100%);
     padding: 40px 20px;
     text-align: center;
 }
@@ -563,6 +565,60 @@ p {
     color: #B78D61; /* Elegant golden/copper color */
     font-size: 1em; /* Increased size to match the layout */
     margin-bottom: 0; /* Removed bottom margin for consistency */
+}
+
+/* Section 5 */
+#section5 {
+    background-color: #F8F4E3; /* Beige color */
+    padding: 40px 20px;
+    text-align: center;
+}
+
+#section5 .section-title h3 {
+    font-family: Cochin, sans-serif;
+    font-size: 2em;
+    color: black;
+    font-weight: bold;
+}
+
+#section5 p {
+    font-family: 'Cochin', sans-serif;
+    font-size: 1.2em;
+    color: black;
+    display: block; /* Ensures it takes up full width */
+    margin: 0 auto; /* Centers the IBAN */
+    width: fit-content; /* Ensures it stays within content size */
+    margin-bottom: 20px;
+}
+
+#section5 p strong {
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    font-size: 1.4em;
+    color: black;
+    display: block; /* Ensures it takes up full width */
+    margin: 0 auto; /* Centers the IBAN */
+    width: fit-content; /* Ensures it stays within content size */
+}
+
+/* Section 6: Contact details */
+/* Style for the phone numbers */
+.contact p {
+    font-family: Arial, sans-serif;
+    font-size: 1.2em;
+    text-align: center; /* Center the entire content */
+    margin-bottom: 10px; /* Space between the paragraphs */
+}
+
+.contact p span {
+    display: inline-block; /* Makes the name and number behave like inline-block elements */
+    width: 45%; /* Sets a fixed width for both name and number */
+    text-align: left; /* Aligns text to the left inside each block */
+}
+
+.contact p a {
+    text-decoration: none; /* Remove underline from the links */
+    color: black; /* Set color for the phone number */
 }
 
 /* Other Sections */

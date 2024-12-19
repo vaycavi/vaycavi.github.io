@@ -116,7 +116,8 @@
     #section3 {
         position: relative;
         /* Ensure the positioning is relative, so it doesn’t interfere with other sections */
-        margin-bottom: 0px !important;
+        margin-bottom: -50px !important;
+        margin-top: -50px !important;
     }
 
     #section3 .content {
@@ -195,6 +196,23 @@
         height: 100% !important; /* Ensure the image takes up full height */
         object-fit: cover !important; /* Ensures the image covers the area without distortion */
         border-radius: 10px !important;
+    }
+
+    /* Section 5*/
+    #section5 {
+        padding: 20px 10px;
+    }
+
+    #section5 .section-title h3 {
+        font-size: 1.6em;
+    }
+
+    #section5 p {
+        font-size: 0.8em !important;
+    }
+
+    #section5 p strong {
+        font-size: 1.6em !important;
     }
 }
 
