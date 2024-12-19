@@ -234,21 +234,33 @@
         <section id="section3" class="ceremony">
             <div class="section-title">
                 <h3 class="en">Ceremony</h3>
-                <h3 class="es" style="display:none;">Ceremonia</h3>
+                <h3 class="es">Ceremonia</h3>
             </div>
 
             <div class="content">
                 <!-- Left content: 4-cell box with icons and map -->
                 <div class="left-content">
-                    <div class="event-table">
+                    <div class="en event-table">
                         <table>
                             <tr>
                                 <td><i class="fas fa-calendar-alt"></i></td>
-                                <td>Saturday, February 22, 2025 - 13:00</td>
+                                <td>Saturday, February 22, 2025 - 1:00 PM</td>
                             </tr>
                             <tr>
                                 <td><i class="fas fa-map-marker-alt"></i></td>
-                                <td>Real Parroquia Señora Santa Ana, Triana, Sevilla</td>
+                                <td>Real Parroquia Señora Santa Ana, Triana</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="es event-table">
+                        <table>
+                            <tr>
+                                <td><i class="fas fa-calendar-alt"></i></td>
+                                <td>Sábado, 22 de febrero de 2025 - 13:00</td>
+                            </tr>
+                            <tr>
+                                <td><i class="fas fa-map-marker-alt"></i></td>
+                                <td>Real Parroquia Señora Santa Ana, Triana</td>
                             </tr>
                         </table>
                     </div>
@@ -264,25 +276,67 @@
             </div>
         </section>
 
-
         <!-- Section 4: Celebration -->
         <section id="section4" class="celebration">
-            <img src="../fotos/hacienda.jpg" alt="celebration">
-            <h3>Celebration</h3>
-            <p>Buses: 14:00-14:30 from Plaza de Cuba</p>
-            <p>Hacienda Molinos de Maestre, Dos Hermanas</p>
-            <p>Return buses: 21:30 & 00:30</p>
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d576.8750700086048!2d-5.997968846728455!3d37.38040836009726!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd126d454364f03b%3A0xea0d08d7f1230a13!2sPlaza%20de%20Cuba!5e0!3m2!1sen!2ses!4v1734466389983!5m2!1sen!2ses"
-                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"></iframe>
-            <iframe src="https://maps.google.com/?q=Hacienda+Molinos+de+Maestre,Dos+Hermanas&output=embed"></iframe>
+            <div class="section-title">
+                <h3 class="en">Celebration</h3>
+                <h3 class="es">Celebración</h3>
+            </div>
+            <!-- Box for Bus Pickup and Hacienda Information -->
+            <div class="bus-hacienda-box">
+                <!-- Bus Pickup Info Box -->
+                <div class="left">
+                    <div class="icon bus-icon">
+                        <i class="fas fa-bus"></i> <!-- Bus Icon -->
+                    </div>
+                    <div class="en info">
+                        <p><strong>Bus Pickup</strong></p>
+                        <p>14:00 - 14:30 from Plaza de Cuba</p>
+                    </div>
+                    <div class="es info">
+                        <p><strong>Autobuses</strong></p>
+                        <p>14:00 - 14:30 desde Plaza de Cuba</p>
+                    </div>
+                </div>
+                <!-- Hacienda Info Box -->
+                <div class="right">
+                    <div class="icon hacienda-icon">
+                        <i class="fas fa-archway"></i> <!-- Hacienda Icon -->
+                    </div>
+                    <div class="info">
+                        <p><strong>Hacienda Los Molinos de Maestre</strong></p>
+                        <p>Dos Hermanas</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Google Maps (Bus Pickup on the left, Hacienda location on the right) -->
+            <div class="maps-container">
+                <!-- Bus Pickup Map -->
+                <div class="left-map">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d576.8750700086048!2d-5.997968846728455!3d37.38040836009726!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd126d454364f03b%3A0xea0d08d7f1230a13!2sPlaza%20de%20Cuba!5e0!3m2!1sen!2ses!4v1734466389983!5m2!1sen!2ses"
+                        width="100%" height="300px" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+                <!-- Hacienda Map -->
+                <div class="right-map">
+                    <iframe src="https://maps.google.com/?q=Hacienda+Molinos+de+Maestre,Dos+Hermanas&output=embed"
+                        width="100%" height="300px" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+
+            <!-- Hacienda Image -->
+            <div class="hacienda-image">
+                <img src="../fotos/hacienda.jpg" alt="Hacienda Los Molinos de Maestre">
+            </div>
         </section>
 
         <!-- Section 5: Gift -->
         <section id="section5" class="Registry">
-            <h3>Your Presence Is Our Present</h3>
-            <p>The best present for us is your presence, but if you'd like to contribute to our honeymoon:</p>
+            <h3 class="en">Your Presence Is Our Present</h3>
+            <h3 class="en">Vuestra presencia es nuestro regalo</h3>
+            <p class="en">The best present for us is your presence, but here are the details if you'd like to contribute to our honeymoon:</p>
+            <p class="es">El mejor regalo que nos hacéis es venir a nuestra boda, pero si queréis contribuir a nuestro viaje de novios, aquí tenéis los detalles:</p>
             <p><strong>IBAN: ES00 1234 5678 9012 3456 7890</strong></p>
         </section>
 

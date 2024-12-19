@@ -68,6 +68,7 @@
     }
 
     /* Section 2*/
+    /*#section2 {background: linear-gradient(to bottom, white 0%, #D7A29A 30%); } */
     /* Ensure title and button stay aligned horizontally on smaller screens */
     .section-title {
         justify-content: center;
@@ -82,6 +83,16 @@
         flex-direction: column;
         /* Stack columns vertically on smaller screens */
         text-align: center;
+    }
+
+    /* Image */
+    .image {
+        width: 120% !important;
+        height: 100%;
+        /* Ensure the image takes up the full height */
+        object-fit: cover;
+        /* Ensures the image covers the area without distortion */
+        border-radius: 10px;
     }
 
     .left-column {
@@ -102,19 +113,23 @@
     }
 
     /* Section 3 */
-    #section3 .content {
-        flex-direction: column !important;
-        /* Stack the sections vertically */
-        align-items: center !important;
-        /* Center the content horizontally */
-        width: 100% !important;
-        /* Ensure the full width of the screen is used */
+    #section3 {
+        position: relative;
+        /* Ensure the positioning is relative, so it doesn’t interfere with other sections */
+        margin-bottom: 0px !important;
     }
 
-    /* Left content (Date, Location, Google Maps) */
+    #section3 .content {
+        flex-direction: column !important;
+        /* Stack the content vertically */
+        align-items: center !important;
+        /* Center the content */
+    }
+
+    /* Left content (table and map) */
     #section3 .left-content {
         width: 100% !important;
-        /* Full width */
+        /* Full width for mobile */
         display: flex !important;
         flex-direction: column !important;
         /* Stack items vertically */
@@ -122,62 +137,64 @@
         /* Stretch items to take full width */
     }
 
-    /* Styling for the Date, Location, and Icons table */
-    #section3 .event-table table {
-        width: 100% !important;
-        /* Full width for mobile */
-        text-align: center !important;
-        /* Center the text */
-        background-color: #F8F4E3 !important;
-        /* Beige background color */
-        border-radius: 10px !important;
-        /* Rounded corners */
-        padding: 20px !important;
-        /* Padding inside the table */
-    }
-
-    #section3 .event-table td {
-        padding: 10px !important;
-        /* Padding inside each cell */
-        font-size: 1.1em !important;
-        /* Adjust font size */
-    }
-
-    #section3 .event-table i {
-        font-size: 1.5em !important;
-        /* Icon size */
-        color: #ff6347 !important;
-        /* Icon color */
-    }
-
-    /* Google Maps iframe */
+    /* Adjust Google Maps iframe */
     #section3 iframe {
         width: 100% !important;
-        /* Full width */
+        /* Full width for mobile */
         height: 250px !important;
         /* Reduced height for mobile */
         margin-top: 10px !important;
         border-radius: 10px !important;
+        /* Rounded corners */
     }
 
-    /* Right content (Image as background) */
+    /* Right content (Image) */
     #section3 .right-content {
-        width: 100vw !important;
-        /* Full viewport width */
-        height: 100vh !important;
-        /* Full viewport height */
-        margin: 0 !important;
-        /* Remove any margin */
-        padding: 0 !important;
-        /* Ensure no padding */
-        background-image: url(../fotos/church.jpg) !important;
-        background-size: cover !important;
-        /* Ensure the background covers the full width/height */
-        background-position: center !important;
-        /* Ensure the image is centered */
-        background-repeat: no-repeat !important;
-        /* Prevent the image from repeating */
-        position: relative;
+        width: 140% !important;
+        /* Ensure the image takes full width */
+        height: auto !important;
+        /* Maintain aspect ratio */
+        margin-top: 20px !important;
+        /* Add space between Google Maps and the image */
+    }
+
+    /* Image styling for mobile */
+    #section3 .right-content img {
+        width: 120% !important;
+        /* Ensure the image takes up full width */
+        border-radius: 10px !important;
+    }
+
+    /* Section 4 (Celebration) */
+    .bus-hacienda-box {
+        flex-direction: column;
+        align-items: flex-start; /* Align items to the left on mobile */
+    }
+
+    .maps-container {
+        flex-direction: row; /* Side-by-side layout */
+        justify-content: flex-start; /* Ensure maps align to the left */
+        gap: 2% !important; /* Reduce gap between the maps */
+    }
+
+    .left-map, .right-map {
+        width: 48% !important; /* Set width to 48% for each map */
+        margin-bottom: 10px !important;
+        height: 300px !important; /* Fixed height for maps on mobile */
+    }
+
+    /* Image styling for Section 4 */
+    .hacienda-image {
+        width: 120% !important; /* Make the image container take up 120% of the width */
+        margin-left: -10% !important; /* Adjust to center the image */
+        margin-top: 20px !important; /* Add some margin on top */
+    }
+
+    .hacienda-image img {
+        width: 100% !important;
+        height: 100% !important; /* Ensure the image takes up full height */
+        object-fit: cover !important; /* Ensures the image covers the area without distortion */
+        border-radius: 10px !important;
     }
 }
 
