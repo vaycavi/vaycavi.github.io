@@ -71,13 +71,13 @@ header .top-bar .logo {
 }
 
 .rsvp-button:hover {
-    background-color: #9d6f40;
+    background-color:  rgba(228,213,183, 0.8);
     transform: scale(1.05);
 }
 
 .rsvp-button:focus {
     outline: none;
-    border: 2px solid #9d6f40;
+    border: 2px solid  rgba(228,213,183, 0.8);
 }
 
 .rsvp-button:active {
@@ -171,8 +171,8 @@ header .top-bar .logo {
 
 /* Button hover effect */
 .menu-links a:hover {
-    background-color: #9d6f40;  /* Light brown color on hover */
-    color: white;
+    background-color:  rgba(228,213,183, 0.8);  /* Light brown color on hover */
+    color: black;
 }
 
 /* Styling for the RSVP button (with border) */
@@ -182,15 +182,15 @@ header .top-bar .logo {
     text-decoration: none;
     color: black;
     padding: 10px;
-    border: 2px solid #9d6f40;  /* Add border */
+    border: 2px solid rgba(228,213,183, 0.8);  /* Add border */
     border-radius: 5px;
     background-color: transparent;  /* Make background transparent */
     transition: background-color 0.3s ease, transform 0.2s;
 }
 
 .rsvp-button:hover {
-    background-color: #9d6f40;
-    color: white;
+    background-color: rgba(228,213,183, 0.8);
+    color: black;
     transform: scale(1.05);  /* Scale effect on hover */
 }
 
