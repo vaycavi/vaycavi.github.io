@@ -248,7 +248,7 @@ section {
     text-align: center;
     display: block;
     color: black; /* Text color for the countdown digits */
-    font-family: 'Cochin', sans-serif; /* Font family */
+    font-family: Cochin, sans-serif; /* Font family */
     font-weight: lighter;
 }
 
@@ -257,7 +257,7 @@ section {
     display: block;
     font-size: 0.5em;
     margin-top: 5px;
-    font-family: 'Cochin', sans-serif; /* Font family */
+    font-family: Cochin, sans-serif; /* Font family */
     font-weight: lighter;
     color: black; /* Text color for the label (e.g., Days, Hours) */
 }
@@ -372,7 +372,7 @@ h3 {
 
 /* Hover Effect for Button */
 .add-to-calendar-btn:hover {
-    background-color: #e55a4e;
+    color: #B78D61; /* Elegant golden/copper color */
 }
 
 /* Body Content Styling */
