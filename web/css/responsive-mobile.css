@@ -21,8 +21,8 @@
     #section1 {
         /* Background picture*/
         height: 100vh !important;
-        background-size: auto !important;
-        background-position: 40% 50% !important;
+        background-size: cover !important;
+        background-position: 15% 50% !important;
         /* Move the background upwards */
         background-attachment: scroll !important;
     }
@@ -39,7 +39,7 @@
         /* Maximum width to avoid it becoming too wide */
         position: absolute;
         /* Ensures correct positioning */
-        bottom: 15% !important;
+        bottom: 3% !important;
     }
 
     #section1 h2 {
@@ -60,7 +60,7 @@
         /* Even smaller font size */
         position: absolute !important;
         /* Position relative to the section */
-        bottom: 3% !important;
+        bottom: 15% !important;
         /* Reduce bottom margin to avoid overlap with text */
         left: 50% !important;
         transform: translateX(-50%) !important;
@@ -168,8 +168,16 @@
 
     /* Section 4 (Celebration) */
     .bus-hacienda-box {
-        flex-direction: column;
-        align-items: flex-start; /* Align items to the left on mobile */
+        flex-direction: column;  /* Stack items vertically on smaller screens */
+        gap: 20px;  /* Increased gap between bus and hacienda rows */
+    }
+
+    .bus-hacienda-box .left, .bus-hacienda-box .right {
+        flex: 1;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        gap: 15px;  /* Maintain space between icons and text */
     }
 
     .maps-container {
@@ -208,11 +216,11 @@
     }
 
     #section5 p {
-        font-size: 0.8em !important;
+        font-size: 1.4em !important;
     }
 
     #section5 p strong {
-        font-size: 1.6em !important;
+        font-size: 0.8em !important;
     }
 }
 
@@ -220,20 +228,20 @@
 @media (max-width: 376px) {
     .countdown-container {
         /* Ensures correct positioning */
-        bottom: 20% !important;
+        bottom: 4% !important;
     }
 }
 
 @media (max-height: 658px) {
     .countdown-container {
         /* Ensures correct positioning */
-        bottom: 25% !important;
+        bottom: 3% !important;
     }
 
     #section1 h2 {
         font-size: 1.5em !important;
         font-weight: bold !important;
-        bottom: 60% !important;
+        bottom: 70% !important;
         color: white !important;
     }
 }

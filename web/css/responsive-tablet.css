@@ -23,8 +23,7 @@
         /* Background picture */
         height: 90vh !important;
         background-size: 120% !important;
-        /* Slightly zoomed out but not too much */
-        background-position: center 50% !important;
+        background-position: 0% 30% !important;
         /* Move the background upwards */
         background-attachment: scroll !important;
     }
@@ -38,7 +37,7 @@
         padding: 1px 10px !important;
         max-width: 200px !important;
         position: absolute;
-        bottom: 10% !important;
+        bottom: 2% !important;
         /* Adjusted vertical position */
         color: black !important;
     }
@@ -65,7 +64,7 @@
         padding: 5px 10px !important;
         font-size: 1.0em !important;
         position: absolute !important;
-        bottom: 2% !important;
+        bottom: 10% !important;
         /* Adjusted bottom position */
         left: 50% !important;
         transform: translateX(-50%) !important;
@@ -127,7 +126,7 @@
 
     #section1 {
         background-size: 100% !important;
-        background-position: center 55% !important;
+        background-position: 20% 30% !important;
         /* Move the background upwards */
         /* Fit image for iPad */
         height: 90vh !important;
@@ -146,19 +145,9 @@
         /* Maximum width to avoid it becoming too wide */
         position: absolute;
         /* Ensures correct positioning */
-        bottom: 15% !important;
+        bottom: 3% !important;
         /* Positioning the box vertically */
-        color: black !important;
     }
-
-    .countdown-item {
-        color: black !important;
-    }
-
-    .countdown-item span {
-        color: black !important;
-    }
-
     #section1 h2 {
         font-size: 2.5em !important;
         font-weight: bold !important;
@@ -176,7 +165,7 @@
         /* Even smaller font size */
         position: absolute !important;
         /* Position relative to the section */
-        bottom: 3% !important;
+        bottom: 15% !important;
         /* Reduce bottom margin to avoid overlap with text */
         left: 50% !important;
         transform: translateX(-50%) !important;

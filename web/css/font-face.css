@@ -1,0 +1,28 @@
+/* fonts.css */
+@font-face {
+    font-family: 'ArchattsonHollmytro'; 
+    src: url('../fuentes/Archattson Hollmytro.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Romantically';
+    src: url('../fuentes/Romantically.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'bright_almond';
+    src: url('../fuentes/bright_almond.ttf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'jonathan';
+    src: url('../fuentes/JonathanSignature.ttf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
