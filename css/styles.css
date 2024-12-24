@@ -400,7 +400,21 @@ h3 {
     border-radius: 10px;
 }
 
+/* Default: Hide foto15 on larger screens */
+.left-column .image3 {
+    display: none;
+}
+
 .image2 {
+    width: 60%;
+    margin-top: 20px;
+    height: 100%;  /* Ensure the image takes up the full height */
+    object-fit: cover;  /* Ensures the image covers the area without distortion */
+    border-radius: 10px;
+}
+
+/* Image */
+.image3 {
     width: 60%;
     margin-top: 20px;
     height: 100%;  /* Ensure the image takes up the full height */

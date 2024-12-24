@@ -105,6 +105,12 @@
         border-radius: 10px;
     }
 
+    .left-column .image3 {
+        display: block !important;
+        width: 120% !important; /* Adjust the image size if needed */
+        height: auto; /* Maintain aspect ratio */
+    }
+
     .left-column {
         order: 1;
         /* Image comes first */
