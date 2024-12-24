@@ -430,11 +430,17 @@ h3 {
 }
 
 .right-column p {
-    font-size: 1.8em;
+    font-size: 1.6em;
     line-height: 1.5;
     margin-bottom: 10px;  /* Space between paragraphs */
-    text-align: justify;
+    text-align: justify; /* Justify the text */
+    hyphens: auto;  /* Allow automatic hyphenation */
 }
+
+.right-column p:last-child {
+    text-align: left;  /* Left-align the last paragraph to avoid excessive gaps */
+}
+
 p {
     font-family: Cochin, sans-serif;
     line-height: 1.2;
