@@ -400,6 +400,14 @@ h3 {
     border-radius: 10px;
 }
 
+.image2 {
+    width: 60%;
+    margin-top: 20px;
+    height: 100%;  /* Ensure the image takes up the full height */
+    object-fit: cover;  /* Ensures the image covers the area without distortion */
+    border-radius: 10px;
+}
+
 /* Right Column (Text) */
 .right-column {
     flex: 1;  /* Ensures the text takes up equal space */

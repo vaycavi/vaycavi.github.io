@@ -95,6 +95,16 @@
         border-radius: 10px;
     }
 
+    .image2 {
+        width: 100% !important;
+        height: 100%;
+        left: 80% !important;
+        /* Ensure the image takes up the full height */
+        object-fit: cover;
+        /* Ensures the image covers the area without distortion */
+        border-radius: 10px;
+    }
+
     .left-column {
         order: 1;
         /* Image comes first */
