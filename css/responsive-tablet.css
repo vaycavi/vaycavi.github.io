@@ -125,8 +125,8 @@
 @media (min-width: 1000px) {
 
     #section1 {
-        background-size: 100% !important;
-        background-position: 20% 30% !important;
+        background-size: 130% !important;
+        background-position: 0% 28% !important;
         /* Move the background upwards */
         /* Fit image for iPad */
         height: 90vh !important;
@@ -145,13 +145,13 @@
         /* Maximum width to avoid it becoming too wide */
         position: absolute;
         /* Ensures correct positioning */
-        bottom: 3% !important;
+        bottom: 0% !important;
         /* Positioning the box vertically */
     }
     #section1 h2 {
         font-size: 2.5em !important;
         font-weight: bold !important;
-        bottom: 22% !important;
+        bottom: 72% !important;
     }
 
     section .date-location-box {

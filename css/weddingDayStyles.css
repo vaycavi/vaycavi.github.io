@@ -1,0 +1,43 @@
+/* Import default styles */
+@import url('styles.css');
+
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+    /* Ensure the elements stay on the same row */
+    .top-bar {
+        flex-direction: row; /* Keep items on a single line */
+        align-items: center; /* Vertically center all elements */
+        justify-content: space-between; /* Space between items */
+    }
+
+    .top-bar .hamburger {
+        font-size: 1.2em; /* Smaller font size for "Back" button */
+        padding: 8px 15px; /* Reduced padding for smaller button */
+        border: 2px solid white; /* Keep the border around the button */
+        border-radius: 50px; /* Keep rounded corners */
+        margin-left: auto; /* Align it to the right */
+        text-align: center;
+    }
+
+    .top-bar .rsvp {
+        margin-top: 0; /* Ensure there is spacing between the buttons and other elements */
+        margin-left: auto; /* Ensure the RSVP buttons are aligned to the right */
+    }
+
+    /* Wedding Day Section */
+    .wedding-day {
+        margin-top: 60px; /* Ensure space for top bar */
+        padding: 15px;
+    }
+
+    /* Resize the QR code image for smaller screens */
+    .qr-code-section img {
+        width: 150px !important;
+        height: 150px !important;
+    }
+

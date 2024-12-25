@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Day</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/weddingDayStyles.css">
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+
+        function setLanguage(lang) {
+            // Toggle visibility of menu items based on selected language
+            if (lang === 'es') {
+                // Show Spanish menu items and hide English ones
+                document.querySelectorAll('.en').forEach(el => el.style.display = 'none');
+                document.querySelectorAll('.es').forEach(el => el.style.display = 'block');
+            } else {
+                // Show English menu items and hide Spanish ones
+                document.querySelectorAll('.es').forEach(el => el.style.display = 'none');
+                document.querySelectorAll('.en').forEach(el => el.style.display = 'block');
+            }
+
+            // Optionally, store the language in localStorage for persistence across page loads
+            localStorage.setItem('language', lang);
+        }
+
+         // Check for stored language preference and set default to Spanish
+         window.onload = function () {
+            window.scrollTo(0, 0);  // Scroll to the top of the page when the page is loaded
+            const language = localStorage.getItem('language') || 'es'; // Default to Spanish if no language is saved
+            setLanguage(language);
+        };
+    </script>
+</head>
+
+<body>
+    <!-- Top Navigation Bar -->
+    <header>
+        <div class="top-bar">
+            <div class="rsvp">
+                <!-- English RSVP Button -->
+                <a class="en rsvp-button"
+                    href="https://docs.google.com/forms/d/e/1FAIpQLSdqAa5Sshc6KKQ_tG-3vGzIgpp-CYIJQBpiNXNjWK4L3O1bCw/viewform?usp=sharing"
+                    target="_blank">RSVP</a>
+
+                <!-- Spanish RSVP Button -->
+                <a class="es rsvp-button"
+                    href="https://docs.google.com/forms/d/e/1FAIpQLSdqAa5Sshc6KKQ_tG-3vGzIgpp-CYIJQBpiNXNjWK4L3O1bCw/viewform?usp=sharing"
+                    target="_blank">Invitación</a>
+            </div>
+
+            <!-- Language Flags in the Top Bar -->
+            <div class="language-selector">
+                <button class="flag-btn en" onclick="setLanguage('es')">🇪🇸</button>
+                <button class="flag-btn es" onclick="setLanguage('en')">🇬🇧</button>
+            </div>
+
+            <!-- New Page Transition -->
+            <!-- New Page Transition -->
+            <div id="newPage" class="page-transition">
+                <div class="close-btn" onclick="closePage()">✖</div>
+
+                <!-- Navigation Links inside the new page -->
+                <div class="menu-links">
+                    <a class="en menu" href="#section1" onclick="closePage()">Countdown</a>
+                    <a class="en menu" href="#section3" onclick="closePage()">Ceremony</a>
+                    <a class="en menu" href="#section4" onclick="closePage()">Celebration</a>
+                    <a class="en menu" href="#section5" onclick="closePage()">Registry</a>
+                    <a class="es menu" href="#section1" onclick="closePage()">Cuenta Atrás</a>
+                    <a class="es menu" href="#section3" onclick="closePage()">Ceremonia</a>
+                    <a class="es menu" href="#section4" onclick="closePage()">Celebración</a>
+                    <a class="es menu" href="#section5" onclick="closePage()">Lista de regalos</a>
+
+                    <!-- RSVP Button with border -->
+                    <a class="en rsvp-button"
+                        href="https://docs.google.com/forms/d/e/1FAIpQLSdqAa5Sshc6KKQ_tG-3vGzIgpp-CYIJQBpiNXNjWK4L3O1bCw/viewform?usp=sharing"
+                        target="_blank">RSVP</a>
+
+                    <a class="es rsvp-button"
+                        href="https://docs.google.com/forms/d/e/1FAIpQLSdqAa5Sshc6KKQ_tG-3vGzIgpp-CYIJQBpiNXNjWK4L3O1bCw/viewform?usp=sharing"
+                        target="_blank">Invitación</a>
+
+                    <a class="en menu" href="weddingDay.html" onclick="closePage()">Wedding Day</a>
+                    <a class="es menu" href="weddingDay.html" onclick="closePage()">Día de la Boda</a>
+
+                </div>
+            </div>
+            <div class="menu">
+                <div class="hamburger" onclick="goBack()">← Back</div> <!-- Back button -->
+            </div>
+        </div>
+    </header>
+
+    <div class="main-content">
+        <!-- Wedding Day Section -->
+        <section id="weddingDay" class="wedding-day">
+            <h3 class="en">Wedding Day</h3>
+            <h3 class="es">Día de la Boda</h3>
+            <div class="qr-code-section">
+                <h4 class="en">QR Code</h4>
+                <h4 class="es">Código QR</h4>
+                <img src="fotos/codigoQRDrive.png" alt="QR Code" class="qr-image">
+                <p class="en">Scan the QR code to upload and share your photos!</p>
+                <p class="es">¡Escanea el código QR para compartir tus fotos!</p>
+            </div>
+        </section>
+    </div>
+
+</body>
+
+</html>
