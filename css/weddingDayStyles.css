@@ -1,6 +1,3 @@
-/* Import default styles */
-@import url('styles.css');
-
 /* General Reset */
 * {
     margin: 0;
@@ -8,36 +5,187 @@
     box-sizing: border-box;
 }
 
-    /* Ensure the elements stay on the same row */
-    .top-bar {
-        flex-direction: row; /* Keep items on a single line */
-        align-items: center; /* Vertically center all elements */
-        justify-content: space-between; /* Space between items */
-    }
+/* Top Bar Layout */
+.top-bar {
+    padding: 5px 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-right: 10px;
+    position: fixed; /* Fix the top bar to the top */
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(228, 213, 183, 0.4);
+    transition: top 0.3s ease; /* Smooth transition */
+    z-index: 1000; /* Ensure it's on top of other content */
+    justify-content: space-between; /* Spread out the elements */
+}
 
-    .top-bar .hamburger {
-        font-size: 1.2em; /* Smaller font size for "Back" button */
-        padding: 8px 15px; /* Reduced padding for smaller button */
-        border: 2px solid white; /* Keep the border around the button */
-        border-radius: 50px; /* Keep rounded corners */
-        margin-left: auto; /* Align it to the right */
-        text-align: center;
-    }
+/* Language Selector */
+.top-bar .language-selector {
+    margin-left: auto;
+}
+.top-bar .language-selector .flag-btn {
+    background-color: transparent;
+    border: none;
+    font-size: 1.8em;  /* Adjusted flag size */
+    cursor: pointer;
+    padding: 3px;
+    margin: 0 5px;  /* Space between flags */
+}
 
-    .top-bar .rsvp {
-        margin-top: 0; /* Ensure there is spacing between the buttons and other elements */
-        margin-left: auto; /* Ensure the RSVP buttons are aligned to the right */
-    }
+/* Hamburger Button Styling */
+.top-bar .hamburger {
+    background-color: rgba(228,213,183, 0.4);
+    color: black;
+    font-family: 'Cochin', sans-serif;
+    text-decoration: none;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 25px;
+    border: 1px solid;
+    font-size: 0.8em;
+    padding: 9px 5px; /* Increased padding for larger button and more space around text */
+    border: 1px solid rgba(228,213,183, 0.6);
+}
 
-    /* Wedding Day Section */
+/* Challenges Buttons */
+.top-bar .center-btn {
+    margin-left: 10px; /* Space from the hamburger button */
+    background-color: rgba(228, 213, 183, 0.4);
+    color: black;
+    font-family: 'Cochin', sans-serif;
+    text-decoration: none;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 25px;
+    border: 1px solid;
+    font-size: 0.8em;
+    padding: 5px 1px; /* Increased padding for larger button and more space around text */
+    border: 1px solid rgba(228,213,183, 0.6);
+}
+
+/* Fullscreen wedding day section */
+.wedding-day {
+    margin-top: -10px;
+    height: 100vh;  /* Fullscreen height for all devices */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0; /* No padding to ensure full screen */
+    background-image: url('fotos/Miscelánea Boda.png'); /* Your image */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Ensures no repeat */
+    background-attachment: fixed; /* Keep the image fixed while scrolling */
+    background-size: cover; /* Ensure the image covers the entire background */
+}
+
+/* For small vertical screens (iPhone, small Androids) */
+@media (max-width: 600px) and (orientation: portrait) {
     .wedding-day {
-        margin-top: 60px; /* Ensure space for top bar */
-        padding: 15px;
+        height: 100vh; /* Full screen on vertical mode */
+        padding: 10px;
+        justify-content: flex-start; /* Ensure content aligns to the top */
+        background-attachment: scroll; /* Use scroll for mobile, as fixed doesn't always work well */
+    }
+}
+
+/* For larger devices like iPads, Tablets */
+@media (min-width: 601px) and (max-width: 1024px) and (orientation: portrait) {
+    .wedding-day {
+        height: 100vh; /* Full screen height */
+        padding: 20px;
+        justify-content: flex-start; /* Ensure content aligns to the top */
     }
 
-    /* Resize the QR code image for smaller screens */
-    .qr-code-section img {
-        width: 150px !important;
-        height: 150px !important;
+    .center-buttons {
+        flex-direction: row;
     }
+}
+
+/* For horizontal screens (laptops, large devices, landscape mode) */
+@media (min-width: 1025px) and (orientation: landscape), (min-width: 600px) and (orientation: landscape) {
+    .wedding-day {
+        height: auto; /* Adjust to fit content */
+        padding: 40px;
+        justify-content: flex-start; /* Ensure content aligns to the top */
+    }
+}
+
+/* Responsive image for different screens */
+.wedding-day .qr-code-section img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Flexbox layout for Misc section */
+#Misc {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Centers them vertically */
+    margin: 0;
+    padding-top: 0; /* Remove padding if necessary */
+    margin-top: -50px; /* This negative margin will overlap the wedding-day section */
+}
+
+/* Adjusting for smaller screens */
+@media (max-width: 600px) {
+    #Misc {
+        margin-top: -200px; /* Less overlap on smaller screens */
+        justify-content: center;
+        align-items: center; /* Centers them vertically */
+    }
+}
+
+/* Adjusting for larger screens */
+@media (min-width: 601px) {
+    #Misc {
+        margin-top: -100px; /* Less overlap on smaller screens */
+        justify-content: center;
+        align-items: center; /* Centers them vertically */
+    }
+}
+
+/* For horizontal screens (laptops, large devices, landscape mode) */
+@media (min-width: 1025px) and (orientation: landscape), (min-width: 600px) and (orientation: landscape) {
+    #Misc {
+        height: auto; /* Adjust to fit content */
+        padding: 40px;
+        justify-content: center; /* Ensure content aligns to the top */
+        align-items: center; /* Centers them vertically */
+        margin-top: -200px; /* Less overlap on smaller screens */
+    }
+}
+
+/* Remove underline from the link */
+.discord-btn-container a {
+    text-decoration: none; /* Removes underline from the link */
+}
+
+.discord-btn {
+    background-color: #7289DA; /* Discord Blue */
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
+    text-transform: uppercase;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add some shadow for depth */
+}
+
+.discord-btn:hover {
+    background-color: #5B6EAE; /* Darker blue on hover */
+    transform: translateY(-2px); /* Slight lift effect on hover */
+}
+
+.discord-btn:active {
+    transform: translateY(2px); /* Button presses down when clicked */
+}
+
+
 

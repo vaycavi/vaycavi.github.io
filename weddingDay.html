@@ -7,108 +7,119 @@
     <title>Wedding Day</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/weddingDayStyles.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3.10.5/brython.min.js"></script>
     <script>
         function goBack() {
             window.history.back();
         }
 
-        function setLanguage(lang) {
-            // Toggle visibility of menu items based on selected language
-            if (lang === 'es') {
-                // Show Spanish menu items and hide English ones
-                document.querySelectorAll('.en').forEach(el => el.style.display = 'none');
-                document.querySelectorAll('.es').forEach(el => el.style.display = 'block');
-            } else {
-                // Show English menu items and hide Spanish ones
-                document.querySelectorAll('.es').forEach(el => el.style.display = 'none');
-                document.querySelectorAll('.en').forEach(el => el.style.display = 'block');
-            }
-
-            // Optionally, store the language in localStorage for persistence across page loads
-            localStorage.setItem('language', lang);
+        // Function to get query parameter from the URL
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
         }
 
-         // Check for stored language preference and set default to Spanish
-         window.onload = function () {
-            window.scrollTo(0, 0);  // Scroll to the top of the page when the page is loaded
-            const language = localStorage.getItem('language') || 'es'; // Default to Spanish if no language is saved
-            setLanguage(language);
-        };
+        // Function to set the language
+        function setLanguage(lang) {
+            document.querySelectorAll('.en').forEach(el => el.style.display = (lang === 'en') ? 'block' : 'none');
+            document.querySelectorAll('.es').forEach(el => el.style.display = (lang === 'es') ? 'block' : 'none');
+
+            localStorage.setItem('language', lang);
+
+            // Update the URL without reloading the page
+            const url = new URL(window.location);
+            url.searchParams.set('lang', lang);
+            window.history.replaceState({}, '', url);
+        }
+
+        (function initializeLanguage() {
+            const urlLang = getQueryParam('lang');
+            const storedLang = localStorage.getItem('language');
+            const language = urlLang || storedLang || 'es';
+
+            // Apply language immediately
+            document.addEventListener('DOMContentLoaded', () => {
+                setLanguage(language);
+                window.scrollTo(0, 0);  // Ensure the page scrolls to the top
+            });
+
+            // Store language if it's from the URL
+            if (urlLang) {
+                localStorage.setItem('language', urlLang);
+            }
+        })();
+
     </script>
 </head>
 
-<body>
+<body onload="brython()">
     <!-- Top Navigation Bar -->
     <header>
         <div class="top-bar">
-            <div class="rsvp">
-                <!-- English RSVP Button -->
-                <a class="en rsvp-button"
-                    href="https://docs.google.com/forms/d/e/1FAIpQLSdqAa5Sshc6KKQ_tG-3vGzIgpp-CYIJQBpiNXNjWK4L3O1bCw/viewform?usp=sharing"
-                    target="_blank">RSVP</a>
 
-                <!-- Spanish RSVP Button -->
-                <a class="es rsvp-button"
-                    href="https://docs.google.com/forms/d/e/1FAIpQLSdqAa5Sshc6KKQ_tG-3vGzIgpp-CYIJQBpiNXNjWK4L3O1bCw/viewform?usp=sharing"
-                    target="_blank">Invitación</a>
+            <div class="menu">
+                <div class="hamburger en" onclick="window.location.href='index.html'">← Main Page</div> <!-- English Version -->
+                <div class="hamburger es" onclick="window.location.href='index.html'">← Página Principal</div> <!-- Spanish Version -->
             </div>
-
+            <!-- Challenges Button (on the right) -->
+            <div class="challenges">
+                <button class="center-btn en" onclick="window.location.href='games.html'">I am feeling lucky 🤩</button>
+                <button class="center-btn es" onclick="window.location.href='games.html'">Quiero meter la pata
+                    🥴</button>
+            </div>
             <!-- Language Flags in the Top Bar -->
             <div class="language-selector">
                 <button class="flag-btn en" onclick="setLanguage('es')">🇪🇸</button>
                 <button class="flag-btn es" onclick="setLanguage('en')">🇬🇧</button>
             </div>
 
-            <!-- New Page Transition -->
-            <!-- New Page Transition -->
-            <div id="newPage" class="page-transition">
-                <div class="close-btn" onclick="closePage()">✖</div>
-
-                <!-- Navigation Links inside the new page -->
-                <div class="menu-links">
-                    <a class="en menu" href="#section1" onclick="closePage()">Countdown</a>
-                    <a class="en menu" href="#section3" onclick="closePage()">Ceremony</a>
-                    <a class="en menu" href="#section4" onclick="closePage()">Celebration</a>
-                    <a class="en menu" href="#section5" onclick="closePage()">Registry</a>
-                    <a class="es menu" href="#section1" onclick="closePage()">Cuenta Atrás</a>
-                    <a class="es menu" href="#section3" onclick="closePage()">Ceremonia</a>
-                    <a class="es menu" href="#section4" onclick="closePage()">Celebración</a>
-                    <a class="es menu" href="#section5" onclick="closePage()">Lista de regalos</a>
-
-                    <!-- RSVP Button with border -->
-                    <a class="en rsvp-button"
-                        href="https://docs.google.com/forms/d/e/1FAIpQLSdqAa5Sshc6KKQ_tG-3vGzIgpp-CYIJQBpiNXNjWK4L3O1bCw/viewform?usp=sharing"
-                        target="_blank">RSVP</a>
-
-                    <a class="es rsvp-button"
-                        href="https://docs.google.com/forms/d/e/1FAIpQLSdqAa5Sshc6KKQ_tG-3vGzIgpp-CYIJQBpiNXNjWK4L3O1bCw/viewform?usp=sharing"
-                        target="_blank">Invitación</a>
-
-                    <a class="en menu" href="weddingDay.html" onclick="closePage()">Wedding Day</a>
-                    <a class="es menu" href="weddingDay.html" onclick="closePage()">Día de la Boda</a>
-
-                </div>
-            </div>
-            <div class="menu">
-                <div class="hamburger" onclick="goBack()">← Back</div> <!-- Back button -->
-            </div>
         </div>
     </header>
 
     <div class="main-content">
         <!-- Wedding Day Section -->
         <section id="weddingDay" class="wedding-day">
-            <h3 class="en">Wedding Day</h3>
-            <h3 class="es">Día de la Boda</h3>
-            <div class="qr-code-section">
-                <h4 class="en">QR Code</h4>
-                <h4 class="es">Código QR</h4>
-                <img src="fotos/codigoQRDrive.png" alt="QR Code" class="qr-image">
-                <p class="en">Scan the QR code to upload and share your photos!</p>
-                <p class="es">¡Escanea el código QR para compartir tus fotos!</p>
+            <div class="qr-code-section en">
+                <a href="https://pov.camera/qr/F08CB17A-BD3E-4394-8B95-EE1A0445F443" target="_blank"> <!-- Wrap the image with a link -->
+                    <img src="fotos/Miscelánea Boda en.png" alt="QR Code" class="qr-image">
+                </a>
+            </div>
+            <div class="qr-code-section es">
+                <a href="https://pov.camera/qr/F08CB17A-BD3E-4394-8B95-EE1A0445F443" target="_blank"> <!-- Wrap the image with a link -->
+                    <img src="fotos/Miscelánea Boda.png" alt="QR Code" class="qr-image">
+                </a>
+            </div>
+        </section>
+        
+        <section id="Misc">
+            <!-- Discord Join Button -->
+            <div class="discord-btn-container">
+                <a href="https://discord.gg/efnYg5PZ" target="_blank">
+                    <button class="discord-btn en">Join the chat!</button>
+                    <button class="discord-btn es">¡Únete al chat!</button>
+                </a>
             </div>
         </section>
     </div>
+
+    <!-- Inline JavaScript for scroll behavior -->
+    <script>
+        let lastScrollTop = 0; // Variable to store last scroll position
+
+        window.addEventListener('scroll', function () {
+            let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (currentScroll > lastScrollTop) {
+                // Scrolling down, hide the top bar
+                document.querySelector('.top-bar').style.top = '-60px'; // Adjust to the height of the top bar
+            } else {
+                // Scrolling up, show the top bar
+                document.querySelector('.top-bar').style.top = '0';
+            }
+
+            lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Prevent negative scroll values
+        });
+    </script>
 
 </body>
 

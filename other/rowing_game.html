@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rowing Game</title>
+    <style>
+        body {
+            margin: 0;
+            background: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #game-container {
+            position: relative;
+            width: 50%;
+            /* Game fits 50% of the screen width */
+            height: 70%;
+            /* Maintain proportional height */
+            background: #1d3557;
+            /* Dark blue water */
+            border: 5px solid #f1faee;
+            overflow: hidden;
+        }
+
+        .shore {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 15%;
+            /* 15% shore on both sides */
+        }
+
+        .shore.left {
+            left: 0;
+            background: linear-gradient(to left, #e9c46a 5%, #2a9d39 45%);
+            /* Sand and grass */
+        }
+
+        .shore.right {
+            right: 0;
+            background: linear-gradient(to right, #e9c46a 5%, #2a9d39 45%);
+            /* Sand and grass */
+        }
+
+        .shore .tree,
+        .shore .rock {
+            position: absolute;
+        }
+
+        .tree {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: #0a6419;
+            /* Base green color for the tree */
+            border-radius: 50%;
+            /* Makes it circular */
+        }
+
+        .tree .circle {
+            position: absolute;
+            background: #0a6419;
+            /* Green color for tree foliage */
+            border-radius: 50%;
+        }
+
+        .tree .circle.small {
+            width: 15px;
+            height: 15px;
+        }
+
+        .tree .circle.medium {
+            width: 20px;
+            height: 20px;
+        }
+
+        .tree .circle.large {
+            width: 25px;
+            height: 25px;
+        }
+
+
+        .rock {
+            background: #6d6875;
+            /* Default gray */
+        }
+
+        #river {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 15%;
+            /* Inside shores */
+            right: 15%;
+            background: #457b9d;
+            /* Light blue for river */
+        }
+
+        /* Boat */
+        #boat {
+            position: absolute;
+            bottom: 10%;
+            left: 45%;
+            width: 6%;
+            /* Narrower across the river */
+            height: 15%;
+            /* Longer along the river */
+            background: #8b4513;
+            /* Wooden color */
+            clip-path: polygon(50% 0%, 80% 20%, 80% 90%, 50% 100%, 20% 90%, 20% 20%);
+        }
+
+        /* Oars */
+        .oar {
+            position: absolute;
+            width: 80%;
+            /* Long oars */
+            height: 5%;
+            /* Proportional size */
+            background: #8b4513;
+            /* Brown wooden oars */
+        }
+
+        .blade {
+            position: absolute;
+            width: 20%;
+            /* Oar blade */
+            height: 100%;
+            background: #f1faee;
+            /* Light color for blade */
+        }
+
+        /* Left oars */
+        .oar.left1 {
+            left: -70%;
+            top: 40%;
+            transform-origin: right center;
+        }
+
+        .oar.left2 {
+            left: -70%;
+            top: 60%;
+            transform-origin: right center;
+        }
+
+        /* Right oars */
+        .oar.right1 {
+            right: -70%;
+            top: 40%;
+            transform-origin: left center;
+        }
+
+        .oar.right2 {
+            right: -70%;
+            top: 60%;
+            transform-origin: left center;
+        }
+
+        /* Obstacles */
+        .obstacle {
+            position: absolute;
+            background: #6d6875;
+        }
+
+        .obstacle.large {
+            width: 50px;
+            height: 50px;
+            background: #505050;
+            /* Darker gray */
+        }
+
+        .obstacle.medium {
+            width: 30px;
+            height: 30px;
+            background: #7e7e7e;
+            /* Medium gray */
+        }
+
+        .obstacle.small {
+            width: 20px;
+            height: 20px;
+            background: #a8a8a8;
+            /* Lighter gray */
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="tree" style="top: 20%; left: 40%;">
+        <div class="circle large" style="top: 0; left: 10%;"></div>
+        <div class="circle medium" style="top: 15%; left: 30%;"></div>
+        <div class="circle small" style="top: 5%; left: 40%;"></div>
+        <div class="circle large" style="top: 10%; left: 15%;"></div>
+    </div>
+
+    <div id="game-container">
+        <div class="shore left">
+            <div class="tree" style="top: 10%; left: 30%;"></div>
+            <div class="tree" style="top: 50%; left: 60%;"></div>
+            <div class="rock" style="top: 70%; left: 40%; width: 20px; height: 20px;"></div>
+        </div>
+        <div id="river">
+            <div id="boat">
+                <div class="oar left1"></div>
+                <div class="oar left2"></div>
+                <div class="oar right1"></div>
+                <div class="oar right2"></div>
+            </div>
+        </div>
+        <div class="shore right">
+            <div class="tree" style="top: 20%; left: 40%;"></div>
+            <div class="rock" style="top: 40%; left: 50%; width: 25px; height: 25px;"></div>
+            <div class="tree" style="top: 60%; left: 70%;"></div>
+        </div>
+    </div>
+
+    <script>
+        function createTree(top, left, container) {
+            const tree = document.createElement('div');
+            tree.classList.add('tree');
+            tree.style.top = `${top}%`;
+            tree.style.left = `${left}%`;
+
+            // Add circles to simulate foliage
+            const foliageData = [
+                { size: 'large', top: 0, left: 10 },
+                { size: 'medium', top: 15, left: 30 },
+                { size: 'small', top: 5, left: 40 },
+                { size: 'large', top: 10, left: 15 },
+            ];
+
+            foliageData.forEach(foliage => {
+                const circle = document.createElement('div');
+                circle.classList.add('circle', foliage.size);
+                circle.style.top = `${foliage.top}%`;
+                circle.style.left = `${foliage.left}%`;
+                tree.appendChild(circle);
+            });
+
+            container.appendChild(tree);
+        }
+
+        // Example: Add trees to the left shore
+        const leftShore = document.querySelector('.shore.left');
+        createTree(10, 30, leftShore);
+        createTree(50, 60, leftShore);
+
+    </script>
+
+    <script>
+        const boat = document.getElementById('boat');
+        const oars = document.querySelectorAll('.oar');
+        const river = document.getElementById('river');
+        const step = 10;
+        let boatPosition = river.offsetWidth / 2 - boat.offsetWidth / 2;
+
+        // Initialize boat position
+        boat.style.left = `${boatPosition}px`;
+
+        // Oar animation
+        let oarAngle = 0;
+        setInterval(() => {
+            oarAngle = oarAngle === 0 ? 20 : 0;
+            oars.forEach(oar => {
+                oar.style.transform = `rotate(${oar.classList.contains('left') ? -oarAngle : oarAngle}deg)`;
+            });
+        }, 200);
+
+        // Boat movement
+        document.addEventListener('keydown', (e) => {
+            const riverWidth = river.offsetWidth;
+            const maxPosition = riverWidth - boat.offsetWidth;
+
+            if (e.key === 'ArrowLeft') {
+                boatPosition = Math.max(0, boatPosition - step);
+            } else if (e.key === 'ArrowRight') {
+                boatPosition = Math.min(maxPosition, boatPosition + step);
+            }
+
+            boat.style.left = `${boatPosition}px`;
+        });
+
+        // Obstacles
+        function createObstacle() {
+            const obstacle = document.createElement('div');
+            const sizeClass = ['small', 'medium', 'large'][Math.floor(Math.random() * 3)];
+            obstacle.className = `obstacle ${sizeClass}`;
+            obstacle.style.left = `${Math.random() * (river.offsetWidth - 50)}px`;
+            obstacle.style.top = '0px';
+            river.appendChild(obstacle);
+
+            const interval = setInterval(() => {
+                const obstacleTop = parseInt(obstacle.style.top) || 0;
+                obstacle.style.top = `${obstacleTop + 5}px`;
+
+                // Collision detection
+                const boatRect = boat.getBoundingClientRect();
+                const obstacleRect = obstacle.getBoundingClientRect();
+                if (
+                    boatRect.left < obstacleRect.left + obstacleRect.width &&
+                    boatRect.left + boatRect.width > obstacleRect.left &&
+                    boatRect.top < obstacleRect.top + obstacleRect.height &&
+                    boatRect.height + boatRect.top > obstacleRect.top
+                ) {
+                    alert('You hit a rock! Game restarting.');
+                    location.reload();
+                }
+
+                // Remove if off-screen
+                if (obstacleTop > river.offsetHeight) {
+                    clearInterval(interval);
+                    obstacle.remove();
+                }
+            }, 50);
+        }
+
+        // Spawn obstacles every 2 seconds
+        setInterval(createObstacle, 2000);
+    </script>
+</body>
+
+</html>
