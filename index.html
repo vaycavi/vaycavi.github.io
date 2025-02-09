@@ -4,401 +4,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Boda Reyes & Vicente</title>
-    <!-- Add Font Awesome CDN -->
+    <title>Wedding Day</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css">
-
+    <link rel="stylesheet" href="css/weddingDayStyles.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3.10.5/brython.min.js"></script>
     <script>
-        // Countdown timer to wedding day
-        function updateCountdown() {
-            const weddingDate = new Date("2025-02-22T13:00:00").getTime(); // Target wedding date
-            const now = new Date().getTime(); // Current date and time
-            const difference = weddingDate - now;
-
-            // Calculate days, hours, minutes, and seconds
-            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-
-            // Update the countdown display
-            document.getElementById("days").innerText = days;
-            document.getElementById("hours").innerText = hours;
-            document.getElementById("minutes").innerText = minutes;
-            document.getElementById("seconds").innerText = seconds;
+        function goBack() {
+            window.history.back();
         }
 
-        setInterval(updateCountdown, 1000); // Update countdown every second
-        window.onload = updateCountdown; // Initialize countdown on page load
+        // Function to get query parameter from the URL
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
 
+        // Function to set the language
         function setLanguage(lang) {
-            // Toggle visibility of menu items based on selected language
-            if (lang === 'es') {
-                // Show Spanish menu items and hide English ones
-                document.querySelectorAll('.en').forEach(el => el.style.display = 'none');
-                document.querySelectorAll('.es').forEach(el => el.style.display = 'block');
-            } else {
-                // Show English menu items and hide Spanish ones
-                document.querySelectorAll('.es').forEach(el => el.style.display = 'none');
-                document.querySelectorAll('.en').forEach(el => el.style.display = 'block');
-            }
+            document.querySelectorAll('.en').forEach(el => el.style.display = (lang === 'en') ? 'block' : 'none');
+            document.querySelectorAll('.es').forEach(el => el.style.display = (lang === 'es') ? 'block' : 'none');
 
-            // Optionally, store the language in localStorage for persistence across page loads
             localStorage.setItem('language', lang);
+
+            // Update the URL without reloading the page
+            const url = new URL(window.location);
+            url.searchParams.set('lang', lang);
+            window.history.replaceState({}, '', url);
         }
 
-        // Check for stored language preference and set default to Spanish
-        window.onload = function () {
-            window.scrollTo(0, 0);  // Scroll to the top of the page when the page is loaded
-            const language = localStorage.getItem('language') || 'es'; // Default to Spanish if no language is saved
-            setLanguage(language);
-        };
+        (function initializeLanguage() {
+            const urlLang = getQueryParam('lang');
+            const storedLang = localStorage.getItem('language');
+            const language = urlLang || storedLang || 'es';
+
+            // Apply language immediately
+            document.addEventListener('DOMContentLoaded', () => {
+                setLanguage(language);
+                window.scrollTo(0, 0);  // Ensure the page scrolls to the top
+            });
+
+            // Store language if it's from the URL
+            if (urlLang) {
+                localStorage.setItem('language', urlLang);
+            }
+        })();
 
     </script>
 </head>
 
-<body>
+<body onload="brython()">
     <!-- Top Navigation Bar -->
     <header>
         <div class="top-bar">
-            <div class="logo">R&amp;V</div>
-            <div class="rsvp">
-                <!-- English RSVP Button -->
-                <a class="en rsvp-button"
-                    href="https://docs.google.com/forms/d/e/1FAIpQLSdqAa5Sshc6KKQ_tG-3vGzIgpp-CYIJQBpiNXNjWK4L3O1bCw/viewform?usp=sharing"
-                    target="_blank">RSVP</a>
 
-                <!-- Spanish RSVP Button -->
-                <a class="es rsvp-button"
-                    href="https://docs.google.com/forms/d/e/1FAIpQLSdqAa5Sshc6KKQ_tG-3vGzIgpp-CYIJQBpiNXNjWK4L3O1bCw/viewform?usp=sharing"
-                    target="_blank">Invitación</a>
+            <div class="menu">
+                <div class="hamburger en" onclick="window.location.href='main.html'">← Main Page</div> <!-- English Version -->
+                <div class="hamburger es" onclick="window.location.href='main.html'">← Página Principal</div> <!-- Spanish Version -->
             </div>
-
+            <!-- Challenges Button (on the right) -->
+            <div class="challenges">
+                <button class="center-btn en" onclick="window.location.href='games.html'">I am feeling lucky 🤩</button>
+                <button class="center-btn es" onclick="window.location.href='games.html'">Quiero meter la pata
+                    🥴</button>
+            </div>
             <!-- Language Flags in the Top Bar -->
             <div class="language-selector">
                 <button class="flag-btn en" onclick="setLanguage('es')">🇪🇸</button>
                 <button class="flag-btn es" onclick="setLanguage('en')">🇬🇧</button>
             </div>
 
-            <!-- New Page Transition -->
-            <div id="newPage" class="page-transition">
-                <div class="close-btn" onclick="closePage()">✖</div>
-
-                <!-- Navigation Links inside the new page -->
-                <div class="menu-links">
-                    <a class="en menu" href="#section1" onclick="closePage()">Countdown</a>
-                    <a class="en menu" href="#section3" onclick="closePage()">Ceremony</a>
-                    <a class="en menu" href="#section4" onclick="closePage()">Celebration</a>
-                    <a class="en menu" href="#section5" onclick="closePage()">Registry</a>
-                    <a class="es menu" href="#section1" onclick="closePage()">Cuenta Atrás</a>
-                    <a class="es menu" href="#section3" onclick="closePage()">Ceremonia</a>
-                    <a class="es menu" href="#section4" onclick="closePage()">Celebración</a>
-                    <a class="es menu" href="#section5" onclick="closePage()">Lista de regalos</a>
-
-                    <!-- RSVP Button with border -->
-                    <a class="en rsvp-button"
-                        href="https://docs.google.com/forms/d/e/1FAIpQLSdqAa5Sshc6KKQ_tG-3vGzIgpp-CYIJQBpiNXNjWK4L3O1bCw/viewform?usp=sharing"
-                        target="_blank">RSVP</a>
-
-                    <a class="es rsvp-button"
-                        href="https://docs.google.com/forms/d/e/1FAIpQLSdqAa5Sshc6KKQ_tG-3vGzIgpp-CYIJQBpiNXNjWK4L3O1bCw/viewform?usp=sharing"
-                        target="_blank">Invitación</a>
-
-                    <a class="en menu" href="weddingDay.html?lang=en" onclick="closePage()">Wedding Day!</a>
-                    <a class="es menu" href="weddingDay.html?lang=es" onclick="closePage()">¡Día de la Boda!</a>
-
-                </div>
-            </div>
-
-
-            <!-- Menu Section -->
-            <div class="menu">
-                <div class="hamburger">&#9776;</div>
-            </div>
-
         </div>
     </header>
 
     <div class="main-content">
-        <!-- Section 1: Countdown -->
-        <section id="section1" class="countdown-section">
-            <!-- Countdown Timer -->
-            <div class="countdown-container">
-                <div class="countdown-item">
-                    <div id="days">00</div>
-                    <span class="en">Days</span>
-                    <span class="es">Días</span>
-                </div>
-                <span class="colon">:</span>
-                <div class="countdown-item">
-                    <div id="hours">00</div>
-                    <span class="en">Hours</span>
-                    <span class="es">Horas</span>
-                </div>
-                <span class="colon">:</span>
-                <div class="countdown-item">
-                    <div id="minutes">00</div>
-                    <span class="en">Minutes</span>
-                    <span class="es">Minutos</span>
-                </div>
-                <span class="colon">:</span>
-                <div class="countdown-item">
-                    <div id="seconds">00</div>
-                    <span class="en">Seconds</span>
-                    <span class="es">Segundos</span>
-                </div>
-            </div>
-
-
-            <!-- Centered Text -->
-            <h2>Reyes & Vicente</h2>
-
-
-            <!-- Date and Location Box -->
-            <div class="date-location-box">
-                <div class="left en">Saturday, February 22, 2025</div>
-                <div class="left es">Sábado, 22 de febrero de 2025</div>
-                <div class="center">Real Parroquia Señora Santa Ana, Sevilla</div>
-                <div class="right">Hacienda Los Molinos de Maestre, Dos Hermanas</div>
-            </div>
-        </section>
-
-        <!-- Section 2: It's Getting Close -->
-        <section id="section2" class="getting-close">
-            <div class="section-title">
-                <h3 class="en">It's Getting Close!</h3>
-                <h3 class="es" style="display:none;">¡Se acerca el gran día!</h3>
-                <!-- Add to Calendar Button next to Title -->
-                <a class="en add-to-calendar-btn" href="https://calendar.app.google/64BGdFkPVwL5GBEs6" target="_blank">
-                    <i class="fas fa-calendar-alt"></i> Add to Google Calendar
-                </a>
-                <a class="es add-to-calendar-btn" href="https://calendar.app.google/NTbShwhP8MoFQSGE8" target="_blank">
-                    <i class="fas fa-calendar-alt"></i> Añadir al calendario
+        <!-- Wedding Day Section -->
+        <section id="weddingDay" class="wedding-day">
+            <div class="qr-code-section en">
+                <a href="https://pov.camera/qr/F08CB17A-BD3E-4394-8B95-EE1A0445F443" target="_blank"> <!-- Wrap the image with a link -->
+                    <img src="fotos/Miscelánea Boda en.png" alt="QR Code" class="qr-image">
                 </a>
             </div>
-
-            <!-- Text Body Section -->
-            <div class="text-body">
-                <div class="left-column">
-                    <img src="fotos/foto2.JPG" alt="Wedding Image" class="image">
-                </div>
-                <div class="right-column">
-                    <p class="en">After more than eight years together, it is time to take the next step, and we have
-                        decided to get married.</p>
-
-                    <p class="en">The ceremony will take place at the church of Santa Ana in Triana. What better place
-                        to celebrate the marriage than at the cathedral of the neighborhood that brought us together
-                        during that velá in 2016 (Triana's fair). Since then, we have lived a relationship in which the
-                        common
-                        denominator has been the almost weekly flights to see each other and the several-hour-long
-                        FaceTimes. Needless to say, we can say that thanks to our peculiar relationship, we have seen
-                        the
-                        world: aside from traveling around half of Europe, we have already set foot on several
-                        continents. And there are still many more to discover! We have also lived through a pandemic,
-                        and we can say that we are among the few lucky ones for whom it worked out well, as we managed
-                        to make the most of the lockdown moments to take our first steps living together as a couple.
-                    </p>
-
-                    <!-- New photo -->
-                    <div class="en left-column">
-                        <img src="fotos/foto13.jpg" alt="New Image 2" class="image2">
-                    </div>
-
-                    <p class="en">Those times are behind us, and now we live together (happily) in Madrid. To stop
-                        living in sin and solve future bureaucratic paperwork, we have organized an epic wedding for
-                        February 22, 2025. And what better way to strengthen our relationship than by sharing this
-                        special day with you. Although, truth be told, we are also really looking forward to having a
-                        great party and making sure the Sunday hangover is unforgettable.</p>
-                    <p class="en">Without a doubt, it will be the best way to start the rest of our lives.</p>
-
-                    <p class="es">Después de más de ocho años juntos, es el momento de dar el siguiente paso: nos
-                        casamos.</p>
-                    <p class="es">La ceremonia será en la iglesia de Santa Ana en Triana.
-                        Qué mejor sitio para celebrar el matrimonio que en la catedral del barrio que nos hizo
-                        conocernos en aquella velá de 2016.
-                        Desde entonces, hemos vivido una relación en la que el denominador común han sido los vuelos
-                        casi semanales para poder vernos
-                        y las videollamadas de varias horas. Desde luego, podemos decir que gracias a nuestra peculiar
-                        relación hemos conocido mundo:
-                        sin contar los viajes por media Europa, ya hemos pisado varios continentes. ¡Y los que nos
-                        quedan por conocer!
-                        También hemos pasado por una pandemia y somos de los pocos afortunados a
-                        los que les vino bien,
-                        ya que supimos aprovechar el confinamiento para dar nuestros primeros pasos
-                        en la convivencia.</p>
-                    <!-- New photo -->
-                    <div class="es left-column">
-                        <img src="fotos/foto13.jpg" alt="New Image 2" class="image2">
-                    </div>
-                    <p class="es">Esos tiempos quedan atrás y ahora convivimos (felizmente) en Madrid.
-                        Para dejar de vivir en pecado y solucionarnos futuros trámites papelísticos, hemos organizado
-                        una boda antológica para el día 22 de febrero de 2025. Y no hay mejor manera de consolidar
-                        nuestra relación que compartiendo este día tan especial con vosotros. Aunque la verdad es que
-                        también
-                        tenemos muchas ganas de vivir una buena fiesta y de que la resaca del domingo sea memorable.</p>
-                    <p class="es"> Sin duda, será la mejor forma de empezar el resto de nuestras vidas.</p>
-
-                    <!-- New photo -->
-                    <div class="left-column">
-                        <img src="fotos/foto15.jpg" alt="New Image 1" class="image3">
-                    </div>
-
-                </div>
+            <div class="qr-code-section es">
+                <a href="https://pov.camera/qr/F08CB17A-BD3E-4394-8B95-EE1A0445F443" target="_blank"> <!-- Wrap the image with a link -->
+                    <img src="fotos/Miscelánea Boda.png" alt="QR Code" class="qr-image">
+                </a>
             </div>
         </section>
-
-
-        <!-- Section 3: Ceremony -->
-        <section id="section3" class="ceremony">
-            <div class="section-title">
-                <h3 class="en">Ceremony</h3>
-                <h3 class="es">Ceremonia</h3>
+        
+        <section id="Misc">
+            <!-- Discord Join Button -->
+            <div class="discord-btn-container">
+                <a href="https://discord.gg/efnYg5PZ" target="_blank">
+                    <button class="discord-btn en">Join the chat!</button>
+                    <button class="discord-btn es">¡Únete al chat!</button>
+                </a>
             </div>
-
-            <div class="content">
-                <!-- Left content: 4-cell box with icons and map -->
-                <div class="left-content">
-                    <div class="en event-table">
-                        <table>
-                            <tr>
-                                <td><i class="fas fa-calendar-alt"></i></td>
-                                <td>Saturday, February 22, 2025 - 1:00 PM</td>
-                            </tr>
-                            <tr>
-                                <td><i class="fas fa-map-marker-alt"></i></td>
-                                <td>Real Parroquia Señora Santa Ana, Triana</td>
-                            </tr>
-                        </table>
-                    </div>
-                    <div class="es event-table">
-                        <table>
-                            <tr>
-                                <td><i class="fas fa-calendar-alt"></i></td>
-                                <td>Sábado, 22 de febrero de 2025 - 13:00</td>
-                            </tr>
-                            <tr>
-                                <td><i class="fas fa-map-marker-alt"></i></td>
-                                <td>Real Parroquia Señora Santa Ana, Triana</td>
-                            </tr>
-                        </table>
-                    </div>
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d815.7976942576419!2d-6.001215766795577!3d37.382876744172485!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd126c1435d75267%3A0xd8111f64acb927d7!2sReal%20Parroquia%20de%20Se%C3%B1ora%20Santa%20Ana!5e0!3m2!1sen!2ses!4v1734466172735!5m2!1sen!2ses"
-                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
-
-                <!-- Right content: Image -->
-                <div class="right-content">
-                    <img src="fotos/church.jpg" alt="Church">
-                </div>
-            </div>
-        </section>
-
-        <!-- Section 4: Celebration -->
-        <section id="section4" class="celebration">
-            <div class="section-title">
-                <h3 class="en">Celebration</h3>
-                <h3 class="es">Celebración</h3>
-            </div>
-            <!-- Box for Bus Pickup and Hacienda Information -->
-            <div class="bus-hacienda-box">
-                <!-- Bus Pickup Info Box -->
-                <div class="left">
-                    <div class="icon bus-icon">
-                        <i class="fas fa-bus"></i> <!-- Bus Icon -->
-                    </div>
-                    <div class="en info">
-                        <p><strong>Bus Pickup</strong></p>
-                        <p>Departure: 2:30 PM from Plaza de Cuba</p>
-                        <p>Return: 9:00 PM and 12:30 AM to Plaza de Cuba</p>
-                    </div>
-                    <div class="es info">
-                        <p><strong>Autobuses</strong></p>
-                        <p>Salida: 14:30 desde Plaza de Cuba</p>
-                        <p>Regreso: 21:00 y 00:30 hacia Plaza de Cuba</p>
-                    </div>
-                </div>
-                <!-- Hacienda Info Box -->
-                <div class="right">
-                    <div class="icon hacienda-icon">
-                        <i class="fas fa-archway"></i> <!-- Hacienda Icon -->
-                    </div>
-                    <div class="info">
-                        <p><strong>Hacienda Los Molinos de Maestre</strong></p>
-                        <p>Dos Hermanas</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Google Maps (Bus Pickup on the left, Hacienda location on the right) -->
-            <div class="maps-container">
-                <!-- Bus Pickup Map -->
-                <div class="left-map">
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d576.8750700086048!2d-5.997968846728455!3d37.38040836009726!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd126d454364f03b%3A0xea0d08d7f1230a13!2sPlaza%20de%20Cuba!5e0!3m2!1sen!2ses!4v1734466389983!5m2!1sen!2ses"
-                        width="100%" height="300px" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                </div>
-                <!-- Hacienda Map -->
-                <div class="right-map">
-                    <iframe src="https://maps.google.com/?q=Hacienda+Molinos+de+Maestre,Dos+Hermanas&output=embed"
-                        width="100%" height="300px" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                </div>
-            </div>
-
-            <!-- Hacienda Image -->
-            <div class="hacienda-image">
-                <img src="fotos/hacienda.jpg" alt="Hacienda Los Molinos de Maestre">
-            </div>
-        </section>
-
-        <!-- Section 5: Gift -->
-        <section id="section5" class="Registry">
-            <div class="section-title">
-                <h3 class="en">Your Presence Is Our Present</h3>
-                <h3 class="es">Vuestra presencia es nuestro regalo</h3>
-            </div>
-            <p class="en">The best present for us is your presence, but here are the details if you'd like to contribute
-                to our honeymoon:</p>
-            <p class="es">El mejor regalo que nos hacéis es venir a nuestra boda, pero si queréis contribuir a nuestro
-                viaje de novios, aquí tenéis los detalles:</p>
-            <p><strong>IBAN: ES66 1465 0100 9917 5863 0081</strong></p>
-        </section>
-
-
-        <!-- Section 6: Contact -->
-        <section id="section6" class="contact">
-            <h3 class="en">Contact Us</h3>
-            <h3 class="es">Contacto</h3>
-            <section class="contact">
-                <p><span>Reyes:</span> <span><a href="tel:+34648268861">+34 648 878 223</a></span></p>
-                <p><span>Vicente:</span> <span><a href="tel:+34648268861">+34 648 268 861</a></span></p>
-            </section>
-
         </section>
     </div>
 
+    <!-- Inline JavaScript for scroll behavior -->
     <script>
-        // Open the new page with transition
-        function openNewPage() {
-            // Fade out the main content
-            document.querySelector('.main-content').classList.add('fade');
+        let lastScrollTop = 0; // Variable to store last scroll position
 
-            // Show the new page with the slide/fade transition
-            document.getElementById('newPage').classList.add('open');
-        }
+        window.addEventListener('scroll', function () {
+            let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
 
-        // Close the new page and return to the main content
-        function closePage() {
-            // Fade in the main content
-            document.querySelector('.main-content').classList.remove('fade');
+            if (currentScroll > lastScrollTop) {
+                // Scrolling down, hide the top bar
+                document.querySelector('.top-bar').style.top = '-60px'; // Adjust to the height of the top bar
+            } else {
+                // Scrolling up, show the top bar
+                document.querySelector('.top-bar').style.top = '0';
+            }
 
-            // Hide the new page with the slide/fade transition
-            document.getElementById('newPage').classList.remove('open');
-        }
-
-        // Event listener for the hamburger menu to open the new page
-        document.querySelector('.hamburger').addEventListener('click', openNewPage);
+            lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Prevent negative scroll values
+        });
     </script>
 
 </body>
