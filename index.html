@@ -48,7 +48,6 @@
                 localStorage.setItem('language', urlLang);
             }
         })();
-
     </script>
 </head>
 
@@ -56,7 +55,6 @@
     <!-- Top Navigation Bar -->
     <header>
         <div class="top-bar">
-
             <div class="menu">
                 <div class="hamburger en" onclick="window.location.href='main.html'">← Main Page</div> <!-- English Version -->
                 <div class="hamburger es" onclick="window.location.href='main.html'">← Página Principal</div> <!-- Spanish Version -->
@@ -64,17 +62,27 @@
             <!-- Challenges Button (on the right) -->
             <div class="challenges">
                 <button class="center-btn en" onclick="window.location.href='games.html'">I am feeling lucky 🤩</button>
-                <button class="center-btn es" onclick="window.location.href='games.html'">Quiero meter la pata
-                    🥴</button>
+                <button class="center-btn es" onclick="window.location.href='games.html'">Quiero meter la pata 🥴</button>
             </div>
             <!-- Language Flags in the Top Bar -->
             <div class="language-selector">
                 <button class="flag-btn en" onclick="setLanguage('es')">🇪🇸</button>
                 <button class="flag-btn es" onclick="setLanguage('en')">🇬🇧</button>
             </div>
-
         </div>
     </header>
+
+    <!-- New Section with Three Buttons -->
+    <section class="button-section">
+        <div class="button-container">
+            <button class="pre-wedding-btn es" onclick="window.location.href='pre-wedding.html'">Pre-Boda</button>
+            <button class="ceremony-btn es" onclick="window.location.href='ceremony.html'">Ceremonia</button>
+            <button class="celebration-btn es" onclick="window.location.href='celebration.html'">Celebración</button>
+            <button class="pre-wedding-btn en" onclick="window.location.href='pre-wedding.html'">Pre-Wedding</button>
+            <button class="ceremony-btn en" onclick="window.location.href='ceremony.html'">Ceremony</button>
+            <button class="celebration-btn en" onclick="window.location.href='celebration.html'">Celebration</button>
+        </div>
+    </section>
 
     <div class="main-content">
         <!-- Wedding Day Section -->
@@ -120,7 +128,5 @@
             lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Prevent negative scroll values
         });
     </script>
-
 </body>
-
 </html>

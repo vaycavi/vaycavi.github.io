@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pre-Wedding</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+
+        function setLanguage(lang) {
+            document.querySelectorAll('.en').forEach(el => el.style.display = (lang === 'en') ? 'block' : 'none');
+            document.querySelectorAll('.es').forEach(el => el.style.display = (lang === 'es') ? 'block' : 'none');
+            localStorage.setItem('language', lang);
+        }
+
+        window.onload = function () {
+            const language = localStorage.getItem('language') || 'es';
+            setLanguage(language);
+        };
+    </script>
+</head>
+
+<body class="pre-wedding-page">
+
+<body>
+    <!-- Top Navigation Bar -->
+    <header>
+        <div class="top-bar-weddingday">
+            <div class="menu">
+                <div class="back en" onclick="window.location.href='index.html'">← Back</div>
+                <div class="back es" onclick="window.location.href='index.html'">← Atrás</div>
+            </div>
+            <div class="language-selector-weddingday">
+                <button class="flag-btn en" onclick="setLanguage('es')">🇪🇸</button>
+                <button class="flag-btn es" onclick="setLanguage('en')">🇬🇧</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-content">
+        <!-- Pre-Wedding Section -->
+        <section id="pre-wedding" class="ceremony">
+            <div class="section-title-prewed">
+                <h3 class="en">Pre-Wedding</h3>
+                <h3 class="es">Pre-Boda</h3>
+            </div>
+
+            <div class="content">
+                <!-- Left content: 4-cell box with icons and map -->
+                <div class="left-content">
+                    <div class="en event-table">
+                        <table>
+                            <tr>
+                                <td><i class="fas fa-calendar-alt"></i></td>
+                                <td>Thursday 20th February 2025 - 20:00</td>
+                            </tr>
+                            <tr>
+                                <td><i class="fas fa-map-marker-alt"></i></td>
+                                <td>La Raza Puerto, Sevilla</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="es event-table">
+                        <table>
+                            <tr>
+                                <td><i class="fas fa-calendar-alt"></i></td>
+                                <td>Jueves 20 de Febrero de 2025 - 20:00</td>
+                            </tr>
+                            <tr>
+                                <td><i class="fas fa-map-marker-alt"></i></td>
+                                <td>La Raza Puerto, Sevilla</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3663.28291755205!2d-5.9900551829722!3d37.37315000787946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd126d01be5b4593%3A0x201fb9a63bebd61f!2sRestaurante%20La%20Raza%20Puerto!5e0!3m2!1sen!2ses!4v1739722633932!5m2!1sen!2ses"
+                        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <div class="text-body">
+                    <div class="right-column">
+                        <p class="en">The pre-wedding will start around 07:30 PM - 08:00 PM in La Raza Puerto (by the
+                            river).
+                            The event venue is actually a bar where you can order whatever you want, but we (Reyes and
+                            Vicente) are helping you to get drunk (in a safe way).</p>
+
+                        <p class="en">Therefore, we will be covering your drinks (beers, wine, and sodas) starting at
+                            08:30 PM until around 10:00 PM. In addition, so you don't end up throwing up all over the
+                            place, complimentary montaditos and snacks will be served, starting at 09:00 PM until end of
+                            stock. But in any case, if you are thirsty or hungry in the meantime or afterwards, you can
+                            still order whatever you want.
+                        </p>
+                        <p class="en">To liven up the event, we will be hosting the infamous <a
+                                href="https://www.instagram.com/ecosdesanjacinto/" target="_blank"
+                                rel="noopener noreferrer">
+                                Ecos de San Jacinto
+                            </a>
+                            , who will be singing some of their notorious ballads such as "Nanananaaa" and "Hay hay
+                            hay". Finally, recently landed
+                            from the darkest undergrounds in Prague, we'll have the legendary <a
+                                href="https://www.instagram.com/phontee/" target="_blank"
+                                rel="noopener noreferrer">
+                                DJ Phontee
+                            </a> playing his best set to date.
+                        </p>
+                        <p class="es">La pre-boda comenzará alrededor de las 19:30 - 20:00 en La Raza Puerto (junto al
+                            río).
+                            El lugar del evento es en realidad un bar donde puedes pedir lo que quieras, pero nosotros
+                            (Reyes y Vicente) te ayudaremos a emborracharte (de manera segura).</p>
+
+                        <p class="es">Así que puedes beber gratis (cervezas, vino y refrescos) desde las 20:30
+                            hasta alrededor de las 22:00. Además, para que no acabes vomitando por todas partes,
+                            serviremos montaditos y aperitivos de cortesía desde las 21:00 hasta que se acaben. Pero en
+                            cualquier caso, si tienes sed o hambre antes, durante o después, siempre puedes pedir lo que
+                            quieras.</p>
+
+                        <p class="es">Para animar el evento, tendremos a los infames <a
+                                href="https://www.instagram.com/ecosdesanjacinto/" target="_blank"
+                                rel="noopener noreferrer">
+                                Ecos de San Jacinto</a>, quienes interpretarán algunas de sus legendarias baladas como
+                            "Nanananaaa" y "Hay hay hay".
+                            Finalmente, recién aterrizado desde los rincones más oscuros del underground de Praga,
+                            tendremos al legendario <a href="https://www.instagram.com/phontee/"
+                                target="_blank" rel="noopener noreferrer">
+                                DJ Phontee</a>, pinchando su mejor sesión hasta la fecha.</p>
+                        <!-- Right content: Image -->
+                        <div class="hacienda-image">
+                            <img src="fotos/laRazaPuerto.png" alt="LaRazaPuerto">
+                        </div>
+                    </div>
+        </section>
+    </div>
+</body>
+
+</html>

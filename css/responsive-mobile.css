@@ -136,7 +136,7 @@
         margin-top: -50px !important;
     }
 
-    #section3 .content {
+    .content {
         flex-direction: column !important;
         /* Stack the content vertically */
         align-items: center !important;
@@ -144,7 +144,7 @@
     }
 
     /* Left content (table and map) */
-    #section3 .left-content {
+    .left-content {
         width: 100% !important;
         /* Full width for mobile */
         display: flex !important;
@@ -155,7 +155,7 @@
     }
 
     /* Adjust Google Maps iframe */
-    #section3 iframe {
+    iframe {
         width: 100% !important;
         /* Full width for mobile */
         height: 250px !important;
@@ -166,7 +166,7 @@
     }
 
     /* Right content (Image) */
-    #section3 .right-content {
+    .right-content {
         width: 140% !important;
         /* Ensure the image takes full width */
         height: auto !important;
@@ -176,7 +176,7 @@
     }
 
     /* Image styling for mobile */
-    #section3 .right-content img {
+    .right-content img {
         width: 120% !important;
         /* Ensure the image takes up full width */
         border-radius: 10px !important;

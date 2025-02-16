@@ -18,7 +18,7 @@
 
         #game-container {
             position: relative;
-            width: 50%;
+            width: 90%;
             height: 70%;
             background: #1d3557;
             border: 5px solid #f1faee;
@@ -51,33 +51,221 @@
             background: #457b9d;
         }
 
+        .wave {
+            position: absolute;
+            top: -20px;
+            /* Start above the river */
+            left: 0;
+            width: 100%;
+            /* Span the entire width of the river */
+            height: 20px;
+            /* Height of the wave */
+            background: rgba(255, 255, 255, 0.2);
+            /* Semi-transparent white for wave effect */
+            animation: waveAnimation 3s linear infinite;
+            border-radius: 50%;
+        }
+
+        .wave::before,
+        .wave::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            /* Semi-transparent white for wave effect */
+            border-radius: 50%;
+        }
+
+        .wave::before {
+            top: -10px;
+            /* Offset for wave effect */
+        }
+
+        .wave::after {
+            top: 10px;
+            /* Offset for wave effect */
+        }
+
+        @keyframes waveAnimation {
+            0% {
+                transform: translateY(-100%);
+                /* Start above the river */
+            }
+
+            100% {
+                transform: translateY(100vh);
+                /* Move down to the bottom of the river */
+            }
+        }
+
         #boat {
             position: absolute;
             bottom: 10%;
             left: 45%;
-            width: 60px;
-            height: 150px;
+            width: 40px;
+            height: 160px;
             background: #8b4513;
-            clip-path: polygon(50% 0%, 80% 20%, 80% 90%, 50% 100%, 20% 90%, 20% 20%);
+            clip-path: polygon(5% 0%, 95% 0%, 100% 20%, 100% 80%, 95% 100%, 5% 100%, 0% 80%, 0% 20%);
+            border: 5px solid yellow;
+        }
+
+        #boat-interior {
+            position: absolute;
+            top: 0%;
+            left: 0%;
+            width: 60%;
+            height: 90%;
+            border: 8px solid black;
+        }
+
+        #slides {
+            position: absolute;
+            top: 0%;
+            left: 35%;
+            width: 20%;
+            height: 95%;
+            border: 2px solid black;
+        }
+
+        #person {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 20px;
+            height: 50px;
+            background: #002D62;
+            /* Dark blue for the unisuit */
+            border-radius: 50% 50% 40% 40%;
+            /* Rounded top, slightly flattened bottom */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Blonde head */
+        #person::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            /* Size of the head */
+            height: 20px;
+            /* Size of the head */
+            background: #f5d76e;
+            /* Blonde color */
+            border-radius: 50%;
+            /* Round shape for the head */
+            top: -10px;
+            /* Position the head above the body */
+        }
+
+        /* Arms */
+        #person::after {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 5px;
+            background: #002D62;
+            top: 40%;
+            transform: translateY(-50%);
+        }
+
+        #person::after {
+            right: -30px;
+        }
+
+        /* Legs */
+        #person .leg {
+            position: absolute;
+            width: 7px;
+            height: 35px;
+            background: #002D62;
+            bottom: -20px;
+        }
+
+        #person .leg.left {
+            left: 0px;
+        }
+
+        #person .leg.right {
+            right: 0px;
         }
 
         .oar {
             position: absolute;
             width: 80px;
             height: 5px;
-            background: #a0522d;
+            background: black;
+            transform-origin: 50% 50%;
         }
 
         .oar.left {
-            left: -40px;
-            top: 50%;
-            transform: rotate(-30deg);
+            left: 520px;
+            top: 77%;
+            animation: rowLeft 1.5s infinite ease-in-out;
         }
 
         .oar.right {
-            right: -40px;
-            top: 50%;
-            transform: rotate(30deg);
+            right: 520px;
+            top: 77%;
+            animation: rowRight 1.5s infinite ease-in-out;
+        }
+
+        .oar::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 30px;
+            background: linear-gradient(90deg,
+                    rgba(170, 21, 27, 1) 33%,
+                    rgba(241, 191, 0, 1) 33%,
+                    rgba(241, 191, 0, 1) 66%,
+                    rgba(170, 21, 27, 1) 66%);
+            border: 1px solid #000;
+            border-radius: 5px;
+            top: -12px;
+            /* Position the blade at the end of the oar */
+        }
+
+        .oar.left::after {
+            transform: rotate(90deg);
+            right: 80px;
+            /* Rotate the blade for the left oar */
+        }
+
+        .oar.right::after {
+            transform: rotate(-90deg);
+            left: 80px;
+            /* Rotate the blade for the right oar */
+        }
+
+        @keyframes rowLeft {
+            0% {
+                transform: rotate(-30deg);
+            }
+
+            50% {
+                transform: rotate(30deg);
+            }
+
+            100% {
+                transform: rotate(-30deg);
+            }
+        }
+
+        @keyframes rowRight {
+            0% {
+                transform: rotate(30deg);
+            }
+
+            50% {
+                transform: rotate(-30deg);
+            }
+
+            100% {
+                transform: rotate(30deg);
+            }
         }
 
         .control-buttons {
@@ -102,21 +290,23 @@
         }
 
         .rock {
+            position: absolute;
             background: #6d6875;
             width: 40px;
             height: 35px;
             border-radius: 50% 40% 60% 50% / 50% 60% 40% 50%;
-            box-shadow: inset -5px -5px 10px rgba(0,0,0,0.5);
+            box-shadow: inset -5px -5px 10px rgba(0, 0, 0, 0.5);
         }
 
         .branch {
+            position: absolute;
             background: #8b4513;
             width: 50px;
             height: 10px;
-            position: relative;
         }
 
-        .branch::before, .branch::after {
+        .branch::before,
+        .branch::after {
             content: '';
             position: absolute;
             background: green;
@@ -134,6 +324,19 @@
             bottom: -5px;
             right: 10px;
         }
+
+        #level-message {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 24px;
+            color: white;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px 20px;
+            border-radius: 10px;
+            display: none;
+        }
     </style>
 </head>
 
@@ -141,12 +344,24 @@
     <div id="game-container">
         <div class="shore left"></div>
         <div id="river">
+            <!-- Waves -->
+            <div class="wave"></div>
+            <div class="wave" style="bottom: 20px; animation-duration: 4s;"></div>
+            <div class="wave" style="bottom: 40px; animation-duration: 5s;"></div>
+
             <div id="boat">
-                <div class="oar left"></div>
-                <div class="oar right"></div>
+                <div id="boat-interior"></div>
+                <div id="slides"></div>
+                <div id="person">
+                    <div class="leg left"></div>
+                    <div class="leg right"></div>
+                </div>
             </div>
+            <div class="oar left"></div>
+            <div class="oar right"></div>
         </div>
         <div class="shore right"></div>
+        <div id="level-message"></div>
     </div>
 
     <div class="control-buttons">
@@ -159,10 +374,41 @@
         const river = document.getElementById('river');
         const moveLeftBtn = document.getElementById('move-left');
         const moveRightBtn = document.getElementById('move-right');
+        const levelMessage = document.getElementById('level-message');
 
         const step = 10;
         let boatPosition = river.offsetWidth / 2 - boat.offsetWidth / 2;
         boat.style.left = `${boatPosition}px`;
+
+        let level = 1;
+        let obstacleSpeed = 5;
+        let obstacleSpawnRate = 2000;
+
+        // Function to reset the game
+        function resetGame() {
+            // Remove all obstacles
+            const obstacles = document.querySelectorAll('.rock, .branch');
+            obstacles.forEach(obstacle => obstacle.remove());
+
+            // Reset boat position
+            boatPosition = river.offsetWidth / 2 - boat.offsetWidth / 2;
+            boat.style.left = `${boatPosition}px`;
+
+            // Reset oar positions
+            const oarLeft = document.querySelector('.oar.left');
+            const oarRight = document.querySelector('.oar.right');
+            oarLeft.style.left = `${boatPosition - 55}px`;
+            oarRight.style.left = `${boatPosition + 25}px`;
+
+            // Reset level, speed, and spawn rate
+            level = 1;
+            obstacleSpeed = 5;
+            obstacleSpawnRate = 2000;
+
+            // Clear the existing obstacle interval and restart it
+            clearInterval(obstacleInterval);
+            obstacleInterval = setInterval(createObstacle, obstacleSpawnRate);
+        }
 
         function moveBoat(direction) {
             const riverWidth = river.offsetWidth;
@@ -175,6 +421,12 @@
             }
 
             boat.style.left = `${boatPosition}px`;
+
+            // Move the oars with the boat
+            const oarLeft = document.querySelector('.oar.left');
+            const oarRight = document.querySelector('.oar.right');
+            oarLeft.style.left = `${boatPosition - 55}px`;
+            oarRight.style.left = `${boatPosition + 25}px`;
         }
 
         document.addEventListener('keydown', (e) => {
@@ -196,7 +448,7 @@
 
             const interval = setInterval(() => {
                 const obstacleTop = parseInt(obstacle.style.top) || 0;
-                obstacle.style.top = `${obstacleTop + 5}px`;
+                obstacle.style.top = `${obstacleTop + obstacleSpeed}px`;
 
                 // Collision detection
                 const boatRect = boat.getBoundingClientRect();
@@ -207,8 +459,10 @@
                     boatRect.top < obstacleRect.top + obstacleRect.height &&
                     boatRect.height + boatRect.top > obstacleRect.top
                 ) {
+                    clearInterval(interval); // Stop the obstacle's movement
+                    obstacle.remove(); // Remove the obstacle immediately
                     alert('You hit an obstacle! Game restarting.');
-                    location.reload();
+                    resetGame(); // Reset the game
                 }
 
                 // Remove if off-screen
@@ -219,8 +473,35 @@
             }, 50);
         }
 
-        // Spawn obstacles every 2 seconds
-        setInterval(createObstacle, 2000);
+        // Function to increase difficulty
+        function increaseDifficulty() {
+            level++;
+            if (level <= 3) {
+                levelMessage.textContent = `Level ${level - 1} passed! ${level}/3 levels to go.`;
+                levelMessage.style.display = 'block';
+                setTimeout(() => {
+                    levelMessage.style.display = 'none';
+                }, 3000);
+
+                // Increase speed and spawn rate
+                obstacleSpeed += 2;
+                obstacleSpawnRate -= 500;
+                clearInterval(obstacleInterval);
+                obstacleInterval = setInterval(createObstacle, obstacleSpawnRate);
+            } else {
+                alert('Congratulations! You have passed the game!');
+                resetGame();
+                level = 1;
+                obstacleSpeed = 5;
+                obstacleSpawnRate = 2000;
+            }
+        }
+
+        // Spawn obstacles initially
+        let obstacleInterval = setInterval(createObstacle, obstacleSpawnRate);
+
+        // Increase difficulty every 30 seconds
+        setInterval(increaseDifficulty, 30000);
     </script>
 </body>
 

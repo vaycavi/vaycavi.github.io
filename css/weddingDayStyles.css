@@ -1,3 +1,7 @@
+
+/* Import Fonts */
+@import url('font-face.css');
+
 /* General Reset */
 * {
     margin: 0;
@@ -86,7 +90,7 @@
 @media (max-width: 600px) and (orientation: portrait) {
     .wedding-day {
         height: 100vh; /* Full screen on vertical mode */
-        padding: 10px;
+        padding: 0px;
         justify-content: flex-start; /* Ensure content aligns to the top */
         background-attachment: scroll; /* Use scroll for mobile, as fixed doesn't always work well */
     }
@@ -187,5 +191,211 @@
     transform: translateY(2px); /* Button presses down when clicked */
 }
 
+/* Ensure buttons are positioned below the top bar */
+.button-section {
+    margin-top: 70px; /* Push the buttons below the top bar */
+    text-align: center;
+    padding: 0px 0;
+}
+
+/* Button Container - Keep buttons in a row */
+.button-container {
+    display: flex;
+    flex-direction: row; /* Ensure buttons stay in a row */
+    justify-content: space-between; /* Distribute buttons evenly */
+    align-items: center;
+    width: 100%; /* Allow buttons to take full width */
+    max-width: 600px; /* Prevent excessive width */
+    margin: 20px auto; /* Center the container */
+    gap: 10px; /* Reduce spacing */
+}
+
+/* Ensure buttons fit their content */
+.pre-wedding-btn,
+.ceremony-btn,
+.celebration-btn {
+    flex-grow: 0; /* Prevent buttons from stretching equally */
+    white-space: nowrap; /* Prevent text from wrapping */
+    padding: 10px 15px;
+    font-size: 1.2em;
+    font-weight: bold;
+    font-family: 'Cochin', sans-serif;
+    color: black;
+    background-color: rgba(228, 213, 183, 1); /* Elegant Copper/Gold */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Hover Effects */
+.pre-wedding-btn:hover,
+.ceremony-btn:hover,
+.celebration-btn:hover {
+    background-color: #8C5A38; /* Darker shade for hover */
+    transform: scale(1.05);
+}
+
+/* Button Click Effect */
+.pre-wedding-btn:active,
+.ceremony-btn:active,
+.celebration-btn:active {
+    transform: scale(0.98);
+}
+
+/* Ensure buttons are in a row on smaller screens */
+@media (max-width: 600px) {
+    .button-container {
+        flex-wrap: wrap; /* Allow wrapping if necessary */
+        justify-content: center; /* Center buttons */
+    }
+}
 
 
+
+
+/* Title Container Styling */
+.section-title-prewed {
+    text-align: center;
+    display: flex;
+    justify-content: center;  /* Align title to the left by default */
+    align-items: center;  /* Vertically align the button with the title */
+    flex-wrap: wrap;  /* Allow wrapping on small screens */
+    width: 100%;
+}
+
+/* Import Fonts */
+@import url('font-face.css');
+
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+html, body {
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    width: 100%; /* Ensure the body does not exceed 100% width */
+}
+
+/* Top Bar Layout */
+.top-bar {
+    padding: 5px 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-right: 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(228, 213, 183, 0.4);
+    transition: top 0.3s ease;
+    z-index: 1000;
+    justify-content: space-between;
+}
+
+/* Language Selector */
+.top-bar .language-selector {
+    margin-left: auto;
+}
+.top-bar .language-selector .flag-btn {
+    background-color: transparent;
+    border: none;
+    font-size: 1.8em;
+    cursor: pointer;
+    padding: 3px;
+    margin: 0 5px;
+}
+
+/* Section Titles */
+.section-title-prewed {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+/* Event Table Styling */
+.event-table {
+    margin-bottom: 35px;
+    width: 100%;
+}
+
+.event-table table {
+    width: 100%;
+    text-align: center;
+    background-color: #F8F4E3;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.event-table td {
+    padding: 10px;
+    font-size: 1.1em;
+}
+
+.event-table i {
+    font-size: 1.5em;
+    color: #ff6347;
+}
+
+/* Map Styling */
+iframe {
+    width: 100%;
+    height: 300px;
+    border: none;
+    margin-top: 10px;
+    border-radius: 10px;
+}
+
+/* Page Layout */
+.main-content {
+    transition: opacity 0.5s ease-in-out;
+}
+.main-content.fade {
+    opacity: 0.3;
+}
+
+.text-body {
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.right-column {
+    flex: 1;
+    text-align: justify;
+}
+
+.right-column p {
+    font-size: 1.6em;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+.right-column p:last-child {
+    text-align: left;
+}
+
+/* Image Styling */
+.hacienda-image {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.hacienda-image img {
+    width: 100%;
+    border-radius: 10px;
+}

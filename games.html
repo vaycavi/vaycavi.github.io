@@ -55,34 +55,34 @@
 <body onload="brython()">
     <!-- Top Navigation Bar -->
     <header>
-        <div class="top-bar">
+        <div class="top-bar-weddingday">
             <div class="menu">
-                <div class="hamburger" onclick="window.history.back()">← Back to Wedding Day</div>
+                <div class="back en" onclick="window.location.href='index.html'">← Back</div>
+                <div class="back es" onclick="window.location.href='index.html'">← Atrás</div>
             </div>
-            <!-- Language Selector (Optional) -->
-            <div class="language-selector">
+            <div class="language-selector-weddingday">
                 <button class="flag-btn en" onclick="setLanguage('es')">🇪🇸</button>
                 <button class="flag-btn es" onclick="setLanguage('en')">🇬🇧</button>
             </div>
         </div>
     </header>
 
-   <!-- Number Guessing Game -->
-   <div id="game-container">
-    <h1>Guess the Number Game</h1>
+    <!-- Number Guessing Game -->
+    <div id="game-container">
+        <!--<h1>Guess the Number Game</h1>
     <p>I'm thinking of a number between 1 and 10. Try to guess it!</p>
 
     <div id="output"></div>
     <input type="number" id="user-input" placeholder="Enter your guess" min="1" max="10" />
     <button id="guess-btn">Guess</button>
-    <button id="restart-btn">Restart Game</button> <!-- Restart Button -->
-</div>
+    <button id="restart-btn">Restart Game</button> <!-- Restart Button -->-->
 
-<!-- Rowing Game Section -->
-<h3 class="en">Rowing Boat Game</h3>
-<h3 class="es">Juego del barco de remo</h3>
-<iframe src="other/rowing_game.html" width="100%" height="600" frameborder="0"></iframe>
-<!-- Embed Rowing Game -->
+
+        <!-- Rowing Game Section -->
+        <h3 class="en"> </h3>
+        <iframe src="other/rowing_game.html" width="100%" height="600" frameborder="0"></iframe>
+        <!-- Embed Rowing Game -->
+    </div>
 </body>
 
 </html>
