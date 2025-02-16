@@ -1,0 +1,42 @@
+#boat {
+    position: absolute;
+    bottom: 10%;
+    left: 45%;
+    width: 100px; /* Adjusted width */
+    height: 30px; /* Adjusted height */
+    background: #8b4513;
+    border-radius: 10px; /* Rounded corners */
+    clip-path: none; /* Remove clip-path */
+}
+
+.oar {
+    position: absolute;
+    width: 80px;
+    height: 5px;
+    background: #a0522d;
+    transform-origin: 100% 50%; /* Rotate from the end */
+}
+
+.oar.left {
+    left: -40px;
+    top: 50%;
+    transform: rotate(-30deg);
+    animation: rowLeft 1s infinite alternate;
+}
+
+.oar.right {
+    right: -40px;
+    top: 50%;
+    transform: rotate(30deg);
+    animation: rowRight 1s infinite alternate;
+}
+
+@keyframes rowLeft {
+    0% { transform: rotate(-30deg); }
+    100% { transform: rotate(-60deg); }
+}
+
+@keyframes rowRight {
+    0% { transform: rotate(30deg); }
+    100% { transform: rotate(60deg); }
+}

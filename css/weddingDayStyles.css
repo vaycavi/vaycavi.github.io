@@ -133,7 +133,7 @@
 /* Adjusting for smaller screens */
 @media (max-width: 600px) {
     #Misc {
-        margin-top: -200px; /* Less overlap on smaller screens */
+        margin-top: -150px; /* Less overlap on smaller screens */
         justify-content: center;
         align-items: center; /* Centers them vertically */
     }
@@ -155,7 +155,7 @@
         padding: 40px;
         justify-content: center; /* Ensure content aligns to the top */
         align-items: center; /* Centers them vertically */
-        margin-top: -200px; /* Less overlap on smaller screens */
+        margin-top: -150px; /* Less overlap on smaller screens */
     }
 }
 
