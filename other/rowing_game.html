@@ -240,6 +240,102 @@
             /* Rotate the blade for the right oar */
         }
 
+        /* Media query for mobile devices (screen width less than 768px) */
+        @media (max-width: 768px) {
+            #boat {
+                width: 20px;
+                /* Smaller boat width */
+                height: 70px;
+                /* Smaller boat height */
+            }
+
+            #boat-interior {
+                position: absolute;
+                top: 0%;
+                left: 0%;
+                width: 60%;
+                height: 90%;
+                border: 4px solid black;
+            }
+
+            #slides {
+                position: absolute;
+                top: 0%;
+                left: 35%;
+                width: 20%;
+                height: 95%;
+                border: 2px solid black;
+            }
+
+            #person {
+                width: 5px;
+                /* Smaller person width */
+                height: 20px;
+                /* Smaller person height */
+            }
+
+            #person::before {
+                width: 15px;
+                /* Smaller head */
+                height: 15px;
+                /* Smaller head */
+                top: -6px;
+                /* Adjust head position */
+            }
+
+            #person::after {
+                width: 400px;
+                /* Shorter arms */
+                height: 4px;
+                /* Thinner arms */
+            }
+
+            #person .leg {
+                width: 5px;
+                /* Thinner legs */
+                height: 30px;
+                /* Shorter legs */
+            }
+
+            .oar {
+                width: 40px;
+                /* Shorter oars */
+                height: 4px;
+                /* Thinner oars */
+            }
+
+            .oar::after {
+                width: 15px;
+                /* Smaller blade */
+                height: 25px;
+                /* Smaller blade */
+            }
+
+            .oar.left {
+                left: 80px;
+                top: 80%;
+                animation: rowLeft 1.5s infinite ease-in-out;
+            }
+
+            .oar.right {
+                right: 80px;
+                top: 80%;
+                animation: rowRight 1.5s infinite ease-in-out;
+            }
+
+            .oar.left::after {
+                transform: rotate(90deg);
+                right: 45px;
+                /* Rotate the blade for the left oar */
+            }
+
+            .oar.right::after {
+                transform: rotate(-90deg);
+                left: 45px;
+                /* Rotate the blade for the right oar */
+            }
+        }
+
         @keyframes rowLeft {
             0% {
                 transform: rotate(-30deg);
@@ -376,6 +472,12 @@
         const moveRightBtn = document.getElementById('move-right');
         const levelMessage = document.getElementById('level-message');
 
+        // Variables to track button press state
+        let isLeftPressed = false;
+        let isRightPressed = false;
+        let isGameRunning = true; // Flag to track if the game is running
+        let difficultyInterval = setInterval(increaseDifficulty, 30000); // Store the interval in a variable
+
         const step = 10;
         let boatPosition = river.offsetWidth / 2 - boat.offsetWidth / 2;
         boat.style.left = `${boatPosition}px`;
@@ -386,6 +488,8 @@
 
         // Function to reset the game
         function resetGame() {
+            isGameRunning = false; // Set the flag to false when the game is reset
+
             // Remove all obstacles
             const obstacles = document.querySelectorAll('.rock, .branch');
             obstacles.forEach(obstacle => obstacle.remove());
@@ -397,8 +501,8 @@
             // Reset oar positions
             const oarLeft = document.querySelector('.oar.left');
             const oarRight = document.querySelector('.oar.right');
-            oarLeft.style.left = `${boatPosition - 55}px`;
-            oarRight.style.left = `${boatPosition + 25}px`;
+            oarLeft.style.left = `${boatPosition - 20}px`;
+            oarRight.style.left = `${boatPosition + 20}px`;
 
             // Reset level, speed, and spawn rate
             level = 1;
@@ -408,8 +512,16 @@
             // Clear the existing obstacle interval and restart it
             clearInterval(obstacleInterval);
             obstacleInterval = setInterval(createObstacle, obstacleSpawnRate);
-        }
 
+            // Clear the difficulty interval
+            clearInterval(difficultyInterval);
+
+            // Restart the difficulty interval after the user acknowledges the alert
+            setTimeout(() => {
+                isGameRunning = true; // Set the flag to true when the game restarts
+                difficultyInterval = setInterval(increaseDifficulty, 30000);
+            }, 0);
+        }
         function moveBoat(direction) {
             const riverWidth = river.offsetWidth;
             const maxPosition = riverWidth - boat.offsetWidth;
@@ -425,17 +537,42 @@
             // Move the oars with the boat
             const oarLeft = document.querySelector('.oar.left');
             const oarRight = document.querySelector('.oar.right');
-            oarLeft.style.left = `${boatPosition - 55}px`;
-            oarRight.style.left = `${boatPosition + 25}px`;
+            oarLeft.style.left = `${boatPosition - 20}px`;
+            oarRight.style.left = `${boatPosition + 20}px`;
         }
+
+        // Function to handle continuous movement
+        function handleContinuousMovement() {
+            if (isLeftPressed) {
+                moveBoat('left');
+            }
+            if (isRightPressed) {
+                moveBoat('right');
+            }
+        }
+
+        // Set up an interval for continuous movement
+        setInterval(handleContinuousMovement, 50);
 
         document.addEventListener('keydown', (e) => {
             if (e.key === 'ArrowLeft') moveBoat('left');
             if (e.key === 'ArrowRight') moveBoat('right');
         });
 
-        moveLeftBtn.addEventListener('click', () => moveBoat('left'));
-        moveRightBtn.addEventListener('click', () => moveBoat('right'));
+        // Event listeners for button press (touchstart) and release (touchend)
+        moveLeftBtn.addEventListener('touchstart', () => {
+            isLeftPressed = true;
+        });
+        moveLeftBtn.addEventListener('touchend', () => {
+            isLeftPressed = false;
+        });
+
+        moveRightBtn.addEventListener('touchstart', () => {
+            isRightPressed = true;
+        });
+        moveRightBtn.addEventListener('touchend', () => {
+            isRightPressed = false;
+        });
 
         // Obstacles
         function createObstacle() {
@@ -461,7 +598,12 @@
                 ) {
                     clearInterval(interval); // Stop the obstacle's movement
                     obstacle.remove(); // Remove the obstacle immediately
-                    alert('You hit an obstacle! Game restarting.');
+                    if ((new URLSearchParams(window.location.search).get('lang') || localStorage.getItem('language') || 'es') === 'es') {
+                        alert('Te has chocado! Reiniciando regata...');
+
+                    } else {
+                        alert('You hit an obstacle! Game restarting.');
+                    }
                     resetGame(); // Reset the game
                 }
 
@@ -475,9 +617,15 @@
 
         // Function to increase difficulty
         function increaseDifficulty() {
+            if (!isGameRunning) return; // Do nothing if the game is not running
+
             level++;
             if (level <= 3) {
-                levelMessage.textContent = `Level ${level - 1} passed! ${level}/3 levels to go.`;
+                if ((new URLSearchParams(window.location.search).get('lang') || localStorage.getItem('language') || 'es') === 'es') {
+                    levelMessage.textContent = `Nivel ${level - 1} superado! ${4 - level} nivel(es) restantes para ganar un premio fabuloso.`;
+                } else {
+                    levelMessage.textContent = `Level ${level - 1} passed! ${4 - level} level(s) remaining to win an amazing prize.`;
+                }
                 levelMessage.style.display = 'block';
                 setTimeout(() => {
                     levelMessage.style.display = 'none';
@@ -488,12 +636,22 @@
                 obstacleSpawnRate -= 500;
                 clearInterval(obstacleInterval);
                 obstacleInterval = setInterval(createObstacle, obstacleSpawnRate);
+
+                // Increase oar speed (reduce animation duration)
+                const oarLeft = document.querySelector('.oar.left');
+                const oarRight = document.querySelector('.oar.right');
+                const newAnimationDuration = `${1.5 - (level * 0.2)}s`;
+                oarLeft.style.animationDuration = newAnimationDuration;
+                oarRight.style.animationDuration = newAnimationDuration;
             } else {
-                alert('Congratulations! You have passed the game!');
+                if ((new URLSearchParams(window.location.search).get('lang') || localStorage.getItem('language') || 'es') === 'es') {
+                    alert('Enhorabuena! Acabas de ganar un chupito de tekifresa o un jagerbomb!\nHazle captura para que quede constancia, si no, no te van a creer.');
+                    levelMessage.textContent = `Hazle captura para que quede constancia que si no, no te van a creer`;
+                } else {
+                    alert('Congratulations! You have won a tekifresa shot or a jagerbomb!\nTake a screenshot or no one will believe you passed the game.');
+                    levelMessage.textContent = `Take a screenshot or no one will believe you passed the game`;
+                }
                 resetGame();
-                level = 1;
-                obstacleSpeed = 5;
-                obstacleSpawnRate = 2000;
             }
         }
 
