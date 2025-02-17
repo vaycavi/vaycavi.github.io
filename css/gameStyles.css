@@ -1,0 +1,55 @@
+/* Top Bar Layout */
+.top-bar-weddingday {
+    padding: 5px 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-right: 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(211,211,211, 0.4);
+    transition: top 0.3s ease;
+    z-index: 1000;
+    justify-content: space-between;
+}
+
+/* Language Selector */
+.top-bar-weddingday .language-selector {
+    margin-left: auto;
+}
+.top-bar-weddingday .language-selector .flag-btn {
+    background-color: transparent;
+    border: none;
+    font-size: 1.8em;
+    cursor: pointer;
+    padding: 3px;
+    margin: 0 5px;
+}
+.top-bar-weddingday .back {
+    background-color: rgba(211,211,211, 0.4);
+    color: black;
+    font-family: 'Cochin', sans-serif;
+    text-decoration: none;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 25px;
+    border: 1px solid;
+    font-size: 0.8em;
+    padding: 9px 5px; /* Increased padding for larger button and more space around text */
+    border: 1px solid rgba(211,211,211, 0.6);
+}
+
+/* Title Container Styling */
+.game-container {
+    text-align: center;
+    padding-top: 120px; 
+    display: flex;
+    justify-content: center;  /* Align title to the left by default */
+    align-items: center;  /* Vertically align the button with the title */
+    gap: 20px;  /* Adds space between title and button */
+    margin-bottom: 20px;
+    flex-wrap: wrap;  /* Allow wrapping on small screens */
+    width: 100%;
+}

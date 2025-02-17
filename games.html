@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challenges - Games</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/gameStyles.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3.10.5/brython.min.js"></script>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+
+        // Function to get query parameter from the URL
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        // Function to set the language
+        function setLanguage(lang) {
+            document.querySelectorAll('.en').forEach(el => el.style.display = (lang === 'en') ? 'block' : 'none');
+            document.querySelectorAll('.es').forEach(el => el.style.display = (lang === 'es') ? 'block' : 'none');
+
+            localStorage.setItem('language', lang);
+
+            // Update the URL without reloading the page
+            const url = new URL(window.location);
+            url.searchParams.set('lang', lang);
+            window.history.replaceState({}, '', url);
+        }
+
+        (function initializeLanguage() {
+            const urlLang = getQueryParam('lang');
+            const storedLang = localStorage.getItem('language');
+            const language = urlLang || storedLang || 'es';
+
+            // Apply language immediately
+            document.addEventListener('DOMContentLoaded', () => {
+                setLanguage(language);
+                window.scrollTo(0, 0);  // Ensure the page scrolls to the top
+            });
+
+            // Store language if it's from the URL
+            if (urlLang) {
+                localStorage.setItem('language', urlLang);
+            }
+        })();
+
+    </script>
+</head>
+
+<body onload="brython()">
+    <!-- Top Navigation Bar -->
+    <header>
+        <div class="top-bar-weddingday">
+            <div class="menu">
+                <div class="back en" onclick="window.location.href='index.html'">← Back</div>
+                <div class="back es" onclick="window.location.href='index.html'">← Atrás</div>
+            </div>
+            <div class="language-selector-weddingday">
+                <button class="flag-btn en" onclick="setLanguage('es')">🇪🇸</button>
+                <button class="flag-btn es" onclick="setLanguage('en')">🇬🇧</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Number Guessing Game -->
+    <div id="game-container">
+        <!--<h1>Guess the Number Game</h1>
+    <p>I'm thinking of a number between 1 and 10. Try to guess it!</p>
+
+    <div id="output"></div>
+    <input type="number" id="user-input" placeholder="Enter your guess" min="1" max="10" />
+    <button id="guess-btn">Guess</button>
+    <button id="restart-btn">Restart Game</button> <!-- Restart Button -->-->
+
+
+        <!-- Rowing Game Section -->
+        <h3 class="en"> </h3>
+        <iframe src="other/rowing_game.html" width="100%" height="600" frameborder="0"></iframe>
+        <!-- Embed Rowing Game -->
+    </div>
+</body>
+
+</html>

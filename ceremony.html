@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ceremony</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+
+        function setLanguage(lang) {
+            document.querySelectorAll('.en').forEach(el => el.style.display = (lang === 'en') ? 'block' : 'none');
+            document.querySelectorAll('.es').forEach(el => el.style.display = (lang === 'es') ? 'block' : 'none');
+            localStorage.setItem('language', lang);
+        }
+
+        window.onload = function () {
+            const language = localStorage.getItem('language') || 'es';
+            setLanguage(language);
+        };
+    </script>
+</head>
+
+<body>
+    <!-- Top Navigation Bar -->
+    <header>
+        <div class="top-bar-weddingday">
+            <div class="menu">
+                <div class="back en" onclick="window.location.href='index.html'">← Back</div>
+                <div class="back es" onclick="window.location.href='index.html'">← Atrás</div>
+            </div>
+            <div class="language-selector-weddingday">
+                <button class="flag-btn en" onclick="setLanguage('es')">🇪🇸</button>
+                <button class="flag-btn es" onclick="setLanguage('en')">🇬🇧</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-content">
+        <!-- Ceremony Section -->
+        <section id="ceremony" class="ceremony">
+            <div class="section-title-prewed">
+                <h3 class="en">Ceremony</h3>
+                <h3 class="es">Ceremonia</h3>
+            </div>
+
+            <div class="content">
+                <!-- Left content: 4-cell box with icons and map -->
+                <div class="left-content">
+                    <div class="en event-table">
+                        <table>
+                            <tr>
+                                <td><i class="fas fa-calendar-alt"></i></td>
+                                <td>Saturday, February 22, 2025 - 1:00 PM</td>
+                            </tr>
+                            <tr>
+                                <td><i class="fas fa-map-marker-alt"></i></td>
+                                <td>Real Parroquia Señora Santa Ana, Triana</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="es event-table">
+                        <table>
+                            <tr>
+                                <td><i class="fas fa-calendar-alt"></i></td>
+                                <td>Sábado, 22 de febrero de 2025 - 13:00</td>
+                            </tr>
+                            <tr>
+                                <td><i class="fas fa-map-marker-alt"></i></td>
+                                <td>Real Parroquia Señora Santa Ana, Triana</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d815.7976942576419!2d-6.001215766795577!3d37.382876744172485!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd126c1435d75267%3A0xd8111f64acb927d7!2sReal%20Parroquia%20de%20Se%C3%B1ora%20Santa%20Ana!5e0!3m2!1sen!2ses!4v1734466172735!5m2!1sen!2ses"
+                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+
+                <!-- Right content: Image -->
+                <div class="hacienda-image">
+                    <img src="fotos/church.jpg" alt="Church">
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

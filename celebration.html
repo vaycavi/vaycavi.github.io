@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ceremony</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+
+        function setLanguage(lang) {
+            document.querySelectorAll('.en').forEach(el => el.style.display = (lang === 'en') ? 'block' : 'none');
+            document.querySelectorAll('.es').forEach(el => el.style.display = (lang === 'es') ? 'block' : 'none');
+            localStorage.setItem('language', lang);
+        }
+
+        window.onload = function () {
+            const language = localStorage.getItem('language') || 'es';
+            setLanguage(language);
+        };
+    </script>
+</head>
+
+<body>
+    <!-- Top Navigation Bar -->
+    <header>
+        <div class="top-bar-weddingday">
+            <div class="menu">
+                <div class="back en" onclick="window.location.href='index.html'">← Back</div>
+                <div class="back es" onclick="window.location.href='index.html'">← Atrás</div>
+            </div>
+            <div class="language-selector-weddingday">
+                <button class="flag-btn en" onclick="setLanguage('es')">🇪🇸</button>
+                <button class="flag-btn es" onclick="setLanguage('en')">🇬🇧</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-content">
+        <!-- Ceremony Section -->
+        <section id="celebration" class="celebration">
+            <div class="section-title-prewed">
+                <h3 class="en">Celebration</h3>
+                <h3 class="es">Celebración</h3>
+            </div>
+            <!-- Box for Bus Pickup and Hacienda Information -->
+            <div class="bus-hacienda-box">
+                <!-- Bus Pickup Info Box -->
+                <div class="left">
+                    <div class="icon bus-icon">
+                        <i class="fas fa-bus"></i> <!-- Bus Icon -->
+                    </div>
+                    <div class="en info">
+                        <p><strong>Bus Pickup</strong></p>
+                        <p>Departure: 2:30 PM from Plaza de Cuba</p>
+                        <p>Return: 9:00 PM and 12:30 AM to Plaza de Cuba</p>
+                    </div>
+                    <div class="es info">
+                        <p><strong>Autobuses</strong></p>
+                        <p>Salida: 14:30 desde Plaza de Cuba</p>
+                        <p>Regreso: 21:00 y 00:30 hacia Plaza de Cuba</p>
+                    </div>
+                </div>
+                <!-- Hacienda Info Box -->
+                <div class="right">
+                    <div class="icon hacienda-icon">
+                        <i class="fas fa-archway"></i> <!-- Hacienda Icon -->
+                    </div>
+                    <div class="info">
+                        <p><strong>Hacienda Los Molinos de Maestre</strong></p>
+                        <p>Dos Hermanas</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Google Maps (Bus Pickup on the left, Hacienda location on the right) -->
+            <div class="maps-container">
+                <!-- Bus Pickup Map -->
+                <div class="left-map">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d576.8750700086048!2d-5.997968846728455!3d37.38040836009726!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd126d454364f03b%3A0xea0d08d7f1230a13!2sPlaza%20de%20Cuba!5e0!3m2!1sen!2ses!4v1734466389983!5m2!1sen!2ses"
+                        width="100%" height="300px" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+                <!-- Hacienda Map -->
+                <div class="right-map">
+                    <iframe src="https://maps.google.com/?q=Hacienda+Molinos+de+Maestre,Dos+Hermanas&output=embed"
+                        width="100%" height="300px" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+
+            <!-- Hacienda Image -->
+            <div class="hacienda-image">
+                <img src="fotos/hacienda.jpg" alt="Hacienda Los Molinos de Maestre">
+            </div>
+        </section>
+    </div>
+</body>
+</html>
